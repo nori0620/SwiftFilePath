@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC509BA01A5E78F200289D7D"
-               BuildableName = "SwiftPathClass.framework"
-               BlueprintName = "SwiftPathClass"
-               ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+               BlueprintIdentifier = "CC7832EB1A610124005E77C3"
+               BuildableName = "SwiftFilePath.framework"
+               BlueprintName = "SwiftFilePath"
+               ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC509BAB1A5E78F200289D7D"
-               BuildableName = "SwiftPathClassTests.xctest"
-               BlueprintName = "SwiftPathClassTests"
-               ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+               BlueprintIdentifier = "CC7832F61A610125005E77C3"
+               BuildableName = "SwiftFilePathTests.xctest"
+               BlueprintName = "SwiftFilePathTests"
+               ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC509BAB1A5E78F200289D7D"
-               BuildableName = "SwiftPathClassTests.xctest"
-               BlueprintName = "SwiftPathClassTests"
-               ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+               BlueprintIdentifier = "CC7832F61A610125005E77C3"
+               BuildableName = "SwiftFilePathTests.xctest"
+               BlueprintName = "SwiftFilePathTests"
+               ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CC509BA01A5E78F200289D7D"
-            BuildableName = "SwiftPathClass.framework"
-            BlueprintName = "SwiftPathClass"
-            ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+            BlueprintIdentifier = "CC7832EB1A610124005E77C3"
+            BuildableName = "SwiftFilePath.framework"
+            BlueprintName = "SwiftFilePath"
+            ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -75,10 +75,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CC509BA01A5E78F200289D7D"
-            BuildableName = "SwiftPathClass.framework"
-            BlueprintName = "SwiftPathClass"
-            ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+            BlueprintIdentifier = "CC7832EB1A610124005E77C3"
+            BuildableName = "SwiftFilePath.framework"
+            BlueprintName = "SwiftFilePath"
+            ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -93,10 +93,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CC509BA01A5E78F200289D7D"
-            BuildableName = "SwiftPathClass.framework"
-            BlueprintName = "SwiftPathClass"
-            ReferencedContainer = "container:SwiftPathClass.xcodeproj">
+            BlueprintIdentifier = "CC7832EB1A610124005E77C3"
+            BuildableName = "SwiftFilePath.framework"
+            BlueprintName = "SwiftFilePath"
+            ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

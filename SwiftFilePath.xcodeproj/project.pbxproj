@@ -7,223 +7,223 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC509BA71A5E78F200289D7D /* SwiftPathClass.h in Headers */ = {isa = PBXBuildFile; fileRef = CC509BA61A5E78F200289D7D /* SwiftPathClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC509BAD1A5E78F200289D7D /* SwiftPathClass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC509BA11A5E78F200289D7D /* SwiftPathClass.framework */; };
-		CC509BB41A5E78F200289D7D /* SwiftPathClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC509BB31A5E78F200289D7D /* SwiftPathClassTests.swift */; };
-		CC509BEC1A5E958000289D7D /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC509BEB1A5E958000289D7D /* File.swift */; };
-		CC509BEE1A5E963500289D7D /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC509BED1A5E963500289D7D /* Dir.swift */; };
-		CC509BF01A5E964100289D7D /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC509BEF1A5E964100289D7D /* Entity.swift */; };
-		CC509BFE1A6028AC00289D7D /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC509BFD1A6028AC00289D7D /* Either.swift */; };
+		CC7832F21A610124005E77C3 /* SwiftFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7832F11A610124005E77C3 /* SwiftFilePath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CC7832F81A610125005E77C3 /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */; };
+		CC7832FF1A610125005E77C3 /* SwiftFilePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */; };
+		CC78330E1A610265005E77C3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78330D1A610265005E77C3 /* Either.swift */; };
+		CC7833121A610299005E77C3 /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78330F1A610299005E77C3 /* Dir.swift */; };
+		CC7833131A610299005E77C3 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833101A610299005E77C3 /* Entity.swift */; };
+		CC7833141A610299005E77C3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833111A610299005E77C3 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CC509BAE1A5E78F200289D7D /* PBXContainerItemProxy */ = {
+		CC7832F91A610125005E77C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CC509B981A5E78F200289D7D /* Project object */;
+			containerPortal = CC7832E31A610124005E77C3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = CC509BA01A5E78F200289D7D;
-			remoteInfo = SwiftPathClass;
+			remoteGlobalIDString = CC7832EB1A610124005E77C3;
+			remoteInfo = SwiftFilePath;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC509BA11A5E78F200289D7D /* SwiftPathClass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftPathClass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC509BA51A5E78F200289D7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC509BA61A5E78F200289D7D /* SwiftPathClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftPathClass.h; sourceTree = "<group>"; };
-		CC509BAC1A5E78F200289D7D /* SwiftPathClassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftPathClassTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC509BB21A5E78F200289D7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CC509BB31A5E78F200289D7D /* SwiftPathClassTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPathClassTests.swift; sourceTree = "<group>"; };
-		CC509BEB1A5E958000289D7D /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
-		CC509BED1A5E963500289D7D /* Dir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
-		CC509BEF1A5E964100289D7D /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
-		CC509BFD1A6028AC00289D7D /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftFilePath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7832F01A610124005E77C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC7832F11A610124005E77C3 /* SwiftFilePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftFilePath.h; sourceTree = "<group>"; };
+		CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFilePathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC7832FD1A610125005E77C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFilePathTests.swift; sourceTree = "<group>"; };
+		CC78330D1A610265005E77C3 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		CC78330F1A610299005E77C3 /* Dir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
+		CC7833101A610299005E77C3 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		CC7833111A610299005E77C3 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CC509B9D1A5E78F200289D7D /* Frameworks */ = {
+		CC7832E81A610124005E77C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC509BA91A5E78F200289D7D /* Frameworks */ = {
+		CC7832F41A610125005E77C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC509BAD1A5E78F200289D7D /* SwiftPathClass.framework in Frameworks */,
+				CC7832F81A610125005E77C3 /* SwiftFilePath.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CC509B971A5E78F200289D7D = {
+		CC7832E21A610124005E77C3 = {
 			isa = PBXGroup;
 			children = (
-				CC509BF51A60286E00289D7D /* Vendor */,
-				CC509BA31A5E78F200289D7D /* SwiftPathClass */,
-				CC509BB01A5E78F200289D7D /* SwiftPathClassTests */,
-				CC509BA21A5E78F200289D7D /* Products */,
+				CC7833081A610222005E77C3 /* Vendor */,
+				CC7832EE1A610124005E77C3 /* SwiftFilePath */,
+				CC7832FB1A610125005E77C3 /* SwiftFilePathTests */,
+				CC7832ED1A610124005E77C3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CC509BA21A5E78F200289D7D /* Products */ = {
+		CC7832ED1A610124005E77C3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC509BA11A5E78F200289D7D /* SwiftPathClass.framework */,
-				CC509BAC1A5E78F200289D7D /* SwiftPathClassTests.xctest */,
+				CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */,
+				CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CC509BA31A5E78F200289D7D /* SwiftPathClass */ = {
+		CC7832EE1A610124005E77C3 /* SwiftFilePath */ = {
 			isa = PBXGroup;
 			children = (
-				CC509BA61A5E78F200289D7D /* SwiftPathClass.h */,
-				CC509BA41A5E78F200289D7D /* Supporting Files */,
-				CC509BEB1A5E958000289D7D /* File.swift */,
-				CC509BED1A5E963500289D7D /* Dir.swift */,
-				CC509BEF1A5E964100289D7D /* Entity.swift */,
+				CC78330F1A610299005E77C3 /* Dir.swift */,
+				CC7833101A610299005E77C3 /* Entity.swift */,
+				CC7833111A610299005E77C3 /* File.swift */,
+				CC7832F11A610124005E77C3 /* SwiftFilePath.h */,
+				CC7832EF1A610124005E77C3 /* Supporting Files */,
 			);
-			path = SwiftPathClass;
+			path = SwiftFilePath;
 			sourceTree = "<group>";
 		};
-		CC509BA41A5E78F200289D7D /* Supporting Files */ = {
+		CC7832EF1A610124005E77C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CC509BA51A5E78F200289D7D /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CC509BB01A5E78F200289D7D /* SwiftPathClassTests */ = {
-			isa = PBXGroup;
-			children = (
-				CC509BB31A5E78F200289D7D /* SwiftPathClassTests.swift */,
-				CC509BB11A5E78F200289D7D /* Supporting Files */,
-			);
-			path = SwiftPathClassTests;
-			sourceTree = "<group>";
-		};
-		CC509BB11A5E78F200289D7D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CC509BB21A5E78F200289D7D /* Info.plist */,
+				CC7832F01A610124005E77C3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CC509BF51A60286E00289D7D /* Vendor */ = {
+		CC7832FB1A610125005E77C3 /* SwiftFilePathTests */ = {
 			isa = PBXGroup;
 			children = (
-				CC509BFC1A6028AC00289D7D /* Swift-SwiftEithe */,
+				CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */,
+				CC7832FC1A610125005E77C3 /* Supporting Files */,
+			);
+			path = SwiftFilePathTests;
+			sourceTree = "<group>";
+		};
+		CC7832FC1A610125005E77C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC7832FD1A610125005E77C3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CC7833081A610222005E77C3 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				CC78330C1A610265005E77C3 /* Swift-SwiftEither-0.0.1 */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		CC509BFC1A6028AC00289D7D /* Swift-SwiftEithe */ = {
+		CC78330C1A610265005E77C3 /* Swift-SwiftEither-0.0.1 */ = {
 			isa = PBXGroup;
 			children = (
-				CC509BFD1A6028AC00289D7D /* Either.swift */,
+				CC78330D1A610265005E77C3 /* Either.swift */,
 			);
-			path = "Swift-SwiftEithe";
+			path = "Swift-SwiftEither-0.0.1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CC509B9E1A5E78F200289D7D /* Headers */ = {
+		CC7832E91A610124005E77C3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC509BA71A5E78F200289D7D /* SwiftPathClass.h in Headers */,
+				CC7832F21A610124005E77C3 /* SwiftFilePath.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CC509BA01A5E78F200289D7D /* SwiftPathClass */ = {
+		CC7832EB1A610124005E77C3 /* SwiftFilePath */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC509BB71A5E78F200289D7D /* Build configuration list for PBXNativeTarget "SwiftPathClass" */;
+			buildConfigurationList = CC7833021A610125005E77C3 /* Build configuration list for PBXNativeTarget "SwiftFilePath" */;
 			buildPhases = (
-				CC509B9C1A5E78F200289D7D /* Sources */,
-				CC509B9D1A5E78F200289D7D /* Frameworks */,
-				CC509B9E1A5E78F200289D7D /* Headers */,
-				CC509B9F1A5E78F200289D7D /* Resources */,
+				CC7832E71A610124005E77C3 /* Sources */,
+				CC7832E81A610124005E77C3 /* Frameworks */,
+				CC7832E91A610124005E77C3 /* Headers */,
+				CC7832EA1A610124005E77C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SwiftPathClass;
-			productName = SwiftPathClass;
-			productReference = CC509BA11A5E78F200289D7D /* SwiftPathClass.framework */;
+			name = SwiftFilePath;
+			productName = SwiftFilePath;
+			productReference = CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CC509BAB1A5E78F200289D7D /* SwiftPathClassTests */ = {
+		CC7832F61A610125005E77C3 /* SwiftFilePathTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC509BBA1A5E78F200289D7D /* Build configuration list for PBXNativeTarget "SwiftPathClassTests" */;
+			buildConfigurationList = CC7833051A610125005E77C3 /* Build configuration list for PBXNativeTarget "SwiftFilePathTests" */;
 			buildPhases = (
-				CC509BA81A5E78F200289D7D /* Sources */,
-				CC509BA91A5E78F200289D7D /* Frameworks */,
-				CC509BAA1A5E78F200289D7D /* Resources */,
+				CC7832F31A610125005E77C3 /* Sources */,
+				CC7832F41A610125005E77C3 /* Frameworks */,
+				CC7832F51A610125005E77C3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CC509BAF1A5E78F200289D7D /* PBXTargetDependency */,
+				CC7832FA1A610125005E77C3 /* PBXTargetDependency */,
 			);
-			name = SwiftPathClassTests;
-			productName = SwiftPathClassTests;
-			productReference = CC509BAC1A5E78F200289D7D /* SwiftPathClassTests.xctest */;
+			name = SwiftFilePathTests;
+			productName = SwiftFilePathTests;
+			productReference = CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CC509B981A5E78F200289D7D /* Project object */ = {
+		CC7832E31A610124005E77C3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = nori0620;
+				ORGANIZATIONNAME = "Norihiro Sakamoto";
 				TargetAttributes = {
-					CC509BA01A5E78F200289D7D = {
+					CC7832EB1A610124005E77C3 = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					CC509BAB1A5E78F200289D7D = {
+					CC7832F61A610125005E77C3 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
 			};
-			buildConfigurationList = CC509B9B1A5E78F200289D7D /* Build configuration list for PBXProject "SwiftPathClass" */;
+			buildConfigurationList = CC7832E61A610124005E77C3 /* Build configuration list for PBXProject "SwiftFilePath" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = CC509B971A5E78F200289D7D;
-			productRefGroup = CC509BA21A5E78F200289D7D /* Products */;
+			mainGroup = CC7832E21A610124005E77C3;
+			productRefGroup = CC7832ED1A610124005E77C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC509BA01A5E78F200289D7D /* SwiftPathClass */,
-				CC509BAB1A5E78F200289D7D /* SwiftPathClassTests */,
+				CC7832EB1A610124005E77C3 /* SwiftFilePath */,
+				CC7832F61A610125005E77C3 /* SwiftFilePathTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CC509B9F1A5E78F200289D7D /* Resources */ = {
+		CC7832EA1A610124005E77C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC509BAA1A5E78F200289D7D /* Resources */ = {
+		CC7832F51A610125005E77C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -233,37 +233,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CC509B9C1A5E78F200289D7D /* Sources */ = {
+		CC7832E71A610124005E77C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC509BEC1A5E958000289D7D /* File.swift in Sources */,
-				CC509BEE1A5E963500289D7D /* Dir.swift in Sources */,
-				CC509BFE1A6028AC00289D7D /* Either.swift in Sources */,
-				CC509BF01A5E964100289D7D /* Entity.swift in Sources */,
+				CC78330E1A610265005E77C3 /* Either.swift in Sources */,
+				CC7833141A610299005E77C3 /* File.swift in Sources */,
+				CC7833121A610299005E77C3 /* Dir.swift in Sources */,
+				CC7833131A610299005E77C3 /* Entity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CC509BA81A5E78F200289D7D /* Sources */ = {
+		CC7832F31A610125005E77C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC509BB41A5E78F200289D7D /* SwiftPathClassTests.swift in Sources */,
+				CC7832FF1A610125005E77C3 /* SwiftFilePathTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CC509BAF1A5E78F200289D7D /* PBXTargetDependency */ = {
+		CC7832FA1A610125005E77C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC509BA01A5E78F200289D7D /* SwiftPathClass */;
-			targetProxy = CC509BAE1A5E78F200289D7D /* PBXContainerItemProxy */;
+			target = CC7832EB1A610124005E77C3 /* SwiftFilePath */;
+			targetProxy = CC7832F91A610125005E77C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		CC509BB51A5E78F200289D7D /* Debug */ = {
+		CC7833001A610125005E77C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -309,7 +309,7 @@
 			};
 			name = Debug;
 		};
-		CC509BB61A5E78F200289D7D /* Release */ = {
+		CC7833011A610125005E77C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -348,32 +348,29 @@
 			};
 			name = Release;
 		};
-		CC509BB81A5E78F200289D7D /* Debug */ = {
+		CC7833031A610125005E77C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftPathClass/Info.plist;
+				INFOPLIST_FILE = SwiftFilePath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		CC509BB91A5E78F200289D7D /* Release */ = {
+		CC7833041A610125005E77C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = SwiftPathClass/Info.plist;
+				INFOPLIST_FILE = SwiftFilePath/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,7 +378,7 @@
 			};
 			name = Release;
 		};
-		CC509BBB1A5E78F200289D7D /* Debug */ = {
+		CC7833061A610125005E77C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -392,20 +389,20 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftPathClassTests/Info.plist;
+				INFOPLIST_FILE = SwiftFilePathTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		CC509BBC1A5E78F200289D7D /* Release */ = {
+		CC7833071A610125005E77C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftPathClassTests/Info.plist;
+				INFOPLIST_FILE = SwiftFilePathTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -414,34 +411,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC509B9B1A5E78F200289D7D /* Build configuration list for PBXProject "SwiftPathClass" */ = {
+		CC7832E61A610124005E77C3 /* Build configuration list for PBXProject "SwiftFilePath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CC509BB51A5E78F200289D7D /* Debug */,
-				CC509BB61A5E78F200289D7D /* Release */,
+				CC7833001A610125005E77C3 /* Debug */,
+				CC7833011A610125005E77C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC509BB71A5E78F200289D7D /* Build configuration list for PBXNativeTarget "SwiftPathClass" */ = {
+		CC7833021A610125005E77C3 /* Build configuration list for PBXNativeTarget "SwiftFilePath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CC509BB81A5E78F200289D7D /* Debug */,
-				CC509BB91A5E78F200289D7D /* Release */,
+				CC7833031A610125005E77C3 /* Debug */,
+				CC7833041A610125005E77C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC509BBA1A5E78F200289D7D /* Build configuration list for PBXNativeTarget "SwiftPathClassTests" */ = {
+		CC7833051A610125005E77C3 /* Build configuration list for PBXNativeTarget "SwiftFilePathTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CC509BBB1A5E78F200289D7D /* Debug */,
-				CC509BBC1A5E78F200289D7D /* Release */,
+				CC7833061A610125005E77C3 /* Debug */,
+				CC7833071A610125005E77C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CC509B981A5E78F200289D7D /* Project object */;
+	rootObject = CC7832E31A610124005E77C3 /* Project object */;
 }

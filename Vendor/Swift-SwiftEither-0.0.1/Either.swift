@@ -96,8 +96,8 @@ public func ??<S, E>(left: Either<S, E>, right: @autoclosure () -> S) -> Either<
 }
 
 //
-//  EitherExtention For SwiftPathClass
-//  SwiftPathClass
+//  EitherExtention For SwiftFilePath
+//  SwiftFilePath
 //
 //  Created by nori0620 on 2015/01/10.
 //  Copyright (c) 2015年 nori0620. All rights reserved.
@@ -123,7 +123,7 @@ extension Either {
         }
     }
    
-    // methods alias for SwiftPathClass
+    // methods alias for SwiftFilePath
     public var value: S? { return self.successValue }
     public var error: F? { return self.failureValue }
     

@@ -1,2 +1,2 @@
 language: objective-c
-script: (cd Lib && make)
+script: make

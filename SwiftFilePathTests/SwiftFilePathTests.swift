@@ -1,16 +1,14 @@
 //
-//  SwiftPathClassTests.swift
-//  SwiftPathClassTests
+//  SwiftFilePathTests.swift
+//  SwiftFilePathTests
 //
-//  Created by nori0620 on 2015/01/08.
-//  Copyright (c) 2015年 nori0620. All rights reserved.
+//  Created by nori0620 on 2015/01/10.
+//  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-import Foundation
-import UIKit
 import XCTest
 
-import SwiftPathClass
+import SwiftFilePath
 
 extension String {
     
@@ -22,7 +20,9 @@ extension String {
     
 }
 
-class SwiftPathClassTests: XCTestCase {
+
+class SwiftFilePathTests: XCTestCase {
+
     
     let sandboxDir = Dir.temporaryDir.subdir("sandbox")
     
@@ -275,5 +275,4 @@ class SwiftPathClassTests: XCTestCase {
         }
         
     }
-    
-}
+    }
