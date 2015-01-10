@@ -282,7 +282,36 @@ class SwiftFilePathTests: XCTestCase {
     
     // MARK
     
-    func readWriteString(){
+    func testReadWriteString(){
+        
+        let textFile = sandboxDir.file("test.txt")
+        
+        locally {
+            let result = textFile.writeString("foo")
+            XCTAssertTrue( result.isSuccess )
+            let readString = textFile.readString()!
+            XCTAssertEqual( readString, "foo")
+        }
+        
+        locally {
+            let result = textFile.writeString("bar")
+            XCTAssertTrue( result.isSuccess )
+            let readString = textFile.readString()!
+            XCTAssertEqual( readString, "bar")
+        }
+        
+        locally {
+            textFile.remove()
+            let readString = textFile.readString() ?? "failed to read"
+            XCTAssertEqual( readString, "failed to read")
+        }
+        
+    }
+    
+    func testReadWriteData(){
+        
+        let binFile = sandboxDir.file("test.bin")
+        
         
     }
 }

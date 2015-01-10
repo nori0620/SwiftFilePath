@@ -10,10 +10,42 @@ import UIKit
 
 public class File: Entity {
     
+    public var extention:NSString {
+        return path.pathExtension
+    }
+    
+    public var dir:Dir {
+        return Dir( path.stringByDeletingLastPathComponent )
+    }
+    
     public func touch() -> Either<File,String> {
         return self.exists
             ? self.updateModificationDate()
             : self.createEmptyFile()
+    }
+    
+    public func readString() -> String? {
+        var readError:NSError?
+        let read = String(contentsOfFile: path,
+                                encoding: NSUTF8StringEncoding,
+                                   error: &readError)
+        
+        if let error = readError {
+            println("readError< \(error.localizedDescription) >")
+        }
+        
+        return read
+    }
+    
+    public func writeString(string:String) -> Either<File,String> {
+        var error: NSError?
+        let result = string.writeToFile(path,
+            atomically:true,
+            encoding: NSUTF8StringEncoding,
+            error: &error)
+        return result
+            ? Either(success: self)
+            : Either(failure: "Failed to write file.< error:\(error?.localizedDescription) path:\(path) >");
     }
     
     public func updateModificationDate(date: NSDate = NSDate() ) -> Either<File,String>{
@@ -26,14 +58,6 @@ public class File: Entity {
         return result
             ? Either(success: self)
             : Either(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path) >");
-    }
-    
-    public var extention:NSString {
-        return path.pathExtension
-    }
-    
-    public var dir:Dir {
-        return Dir( path.stringByDeletingLastPathComponent )
     }
     
     private func createEmptyFile() -> Either<File,String>{
