@@ -7,7 +7,6 @@
 //
 
 import XCTest
-
 import SwiftFilePath
 
 // MARK: Extensions as Test utils
@@ -21,7 +20,6 @@ extension String {
     }
     
 }
-
 
 extension Either {
     

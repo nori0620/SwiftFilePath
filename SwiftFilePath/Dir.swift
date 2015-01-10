@@ -6,9 +6,6 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-import UIKit
-
-
 #if os(iOS)
 extension Dir {
     

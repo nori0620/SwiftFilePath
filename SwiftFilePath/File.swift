@@ -6,8 +6,6 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-import UIKit
-
 public class File: Entity {
     
     public var extention:NSString {

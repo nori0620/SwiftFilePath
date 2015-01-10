@@ -10,10 +10,10 @@
 		CC7832F21A610124005E77C3 /* SwiftFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7832F11A610124005E77C3 /* SwiftFilePath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC7832F81A610125005E77C3 /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */; };
 		CC7832FF1A610125005E77C3 /* SwiftFilePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */; };
-		CC78330E1A610265005E77C3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78330D1A610265005E77C3 /* Either.swift */; };
 		CC7833121A610299005E77C3 /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78330F1A610299005E77C3 /* Dir.swift */; };
 		CC7833131A610299005E77C3 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833101A610299005E77C3 /* Entity.swift */; };
 		CC7833141A610299005E77C3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833111A610299005E77C3 /* File.swift */; };
+		CC78331C1A618186005E77C3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78331A1A61816B005E77C3 /* Either.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +33,10 @@
 		CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFilePathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7832FD1A610125005E77C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFilePathTests.swift; sourceTree = "<group>"; };
-		CC78330D1A610265005E77C3 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		CC78330F1A610299005E77C3 /* Dir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
 		CC7833101A610299005E77C3 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CC7833111A610299005E77C3 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		CC78331A1A61816B005E77C3 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,17 +117,17 @@
 		CC7833081A610222005E77C3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				CC78330C1A610265005E77C3 /* Swift-SwiftEither-0.0.1 */,
+				CC7833171A618046005E77C3 /* SwiftEither-0.0.1 */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		CC78330C1A610265005E77C3 /* Swift-SwiftEither-0.0.1 */ = {
+		CC7833171A618046005E77C3 /* SwiftEither-0.0.1 */ = {
 			isa = PBXGroup;
 			children = (
-				CC78330D1A610265005E77C3 /* Either.swift */,
+				CC78331A1A61816B005E77C3 /* Either.swift */,
 			);
-			path = "Swift-SwiftEither-0.0.1";
+			path = "SwiftEither-0.0.1";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC78330E1A610265005E77C3 /* Either.swift in Sources */,
+				CC78331C1A618186005E77C3 /* Either.swift in Sources */,
 				CC7833141A610299005E77C3 /* File.swift in Sources */,
 				CC7833121A610299005E77C3 /* Dir.swift in Sources */,
 				CC7833131A610299005E77C3 /* Entity.swift in Sources */,
