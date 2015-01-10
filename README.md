@@ -1,9 +1,7 @@
 # SwiftPathClass
-[![CI Status](http://img.shields.io/travis/nori0620/SwiftFilePath.svg?style=flat)](https://travis-ci.org/nori0620/SwiftFilePath)
 
-# Dependency
-* [SwiftEither](https://github.com/gfx/Swift-SwiftEither)
+[![CI Status](http://img.shields.io/travis/nori0620/SwiftFilePath.svg?style=flat)](https://travis-ci.org/nori0620/SwiftFilePath)
 
 # LICENSE
 
-The Apache 2.0 License
+SwiftPathClass is released under the MIT license. See LICENSE for details.

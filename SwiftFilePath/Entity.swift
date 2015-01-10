@@ -47,35 +47,35 @@ public class Entity {
         return path.lastPathComponent
     }
     
-    public func remove() -> Either<Entity,String> {
+    public func remove() -> Result<Entity,String> {
         assert(self.exists,"To remove file, file MUST be exists")
         var error: NSError?
         let result = fileManager.removeItemAtPath(path, error:&error)
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path)>");
+            ? Result(success: self)
+            : Result(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path)>");
     }
     
-    public func copyTo(toPath:Entity) -> Either<Entity,String> {
+    public func copyTo(toPath:Entity) -> Result<Entity,String> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
         let result = fileManager.copyItemAtPath(path,
             toPath: toPath.toString,
              error: &error)
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
+            ? Result(success: self)
+            : Result(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
     }
     
-    public func moveTo(toPath:Entity) -> Either<Entity,String> {
+    public func moveTo(toPath:Entity) -> Result<Entity,String> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
         let result = fileManager.moveItemAtPath(path,
             toPath: toPath.toString,
              error: &error)
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
+            ? Result(success: self)
+            : Result(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
     }
     
     private func loadAttributes() -> NSDictionary {

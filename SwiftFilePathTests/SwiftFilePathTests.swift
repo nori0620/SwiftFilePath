@@ -21,29 +21,6 @@ extension String {
     
 }
 
-extension Either {
-    
-    var isSuccess : Bool {
-        switch self {
-            case .Success(let success):
-                return true
-            case .Failure(let failure):
-                return false
-        }
-    }
-    
-    var isFailure: Bool {
-        switch self {
-            case .Success(let success):
-                return false
-            case .Failure(let failure):
-                return true
-        }
-    }
-    
-}
-
-
 // MARK: Test cases
 
 class SwiftFilePathTests: XCTestCase {

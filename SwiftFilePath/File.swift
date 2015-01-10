@@ -16,13 +16,13 @@ public class File: Entity {
         return Dir( path.stringByDeletingLastPathComponent )
     }
     
-    public func touch() -> Either<File,String> {
+    public func touch() -> Result<File,String> {
         return self.exists
             ? self.updateModificationDate()
             : self.createEmptyFile()
     }
     
-    public func updateModificationDate(date: NSDate = NSDate() ) -> Either<File,String>{
+    public func updateModificationDate(date: NSDate = NSDate() ) -> Result<File,String>{
         var error: NSError?
         let result = fileManager.setAttributes(
             [NSFileModificationDate :date],
@@ -30,18 +30,18 @@ public class File: Entity {
                 error:&error
         )
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path) >");
+            ? Result(success: self)
+            : Result(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path) >");
     }
     
-    private func createEmptyFile() -> Either<File,String>{
+    private func createEmptyFile() -> Result<File,String>{
         let result = fileManager.createFileAtPath(path,
             contents:NSData(),
             attributes:nil
         )
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to create file:\(path)");
+            ? Result(success: self)
+            : Result(failure: "Failed to create file:\(path)");
     }
     
     // MARK: - read/write String
@@ -59,15 +59,15 @@ public class File: Entity {
         return read
     }
     
-    public func writeString(string:String) -> Either<File,String> {
+    public func writeString(string:String) -> Result<File,String> {
         var error: NSError?
         let result = string.writeToFile(path,
             atomically:true,
             encoding: NSUTF8StringEncoding,
             error: &error)
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to write file.< error:\(error?.localizedDescription) path:\(path) >");
+            ? Result(success: self)
+            : Result(failure: "Failed to write file.< error:\(error?.localizedDescription) path:\(path) >");
     }
     
     // MARK: - read/write NSData
@@ -76,11 +76,11 @@ public class File: Entity {
         return NSData(contentsOfFile: path)
     }
     
-    public func writeData(data:NSData) -> Either<File,String> {
+    public func writeData(data:NSData) -> Result<File,String> {
         let result = data.writeToFile(path, atomically:true)
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to write file.< path:\(path) >");
+            ? Result(success: self)
+            : Result(failure: "Failed to write file.< path:\(path) >");
     }
     
 }

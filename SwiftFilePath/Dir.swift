@@ -73,9 +73,9 @@ public class Dir: Entity,SequenceType {
         return Dir( self.path.stringByAppendingPathComponent(path) )
     }
     
-    public func mkdir() -> Either<Dir,String> {
+    public func mkdir() -> Result<Dir,String> {
         if( self.exists ){
-            return Either(failure: "Already exists.<path:\(path)>")
+            return Result(failure: "Already exists.<path:\(path)>")
         }
         var error: NSError?
         let result = fileManager.createDirectoryAtPath(path,
@@ -84,8 +84,8 @@ public class Dir: Entity,SequenceType {
                 error: &error
         )
         return result
-            ? Either(success: self)
-            : Either(failure: "Failed to mkdir.< error:\(error?.localizedDescription) path:\(path) >");
+            ? Result(success: self)
+            : Result(failure: "Failed to mkdir.< error:\(error?.localizedDescription) path:\(path) >");
         
     }
     
