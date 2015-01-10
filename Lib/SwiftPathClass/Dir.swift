@@ -40,8 +40,8 @@ extension Dir {
 }
 #endif
 
-public class Dir: Entity {
-    
+public class Dir: Entity,SequenceType {
+
     override public var isDir: Bool {
         return true;
     }
@@ -50,16 +50,22 @@ public class Dir: Entity {
         return Dir( path.stringByDeletingLastPathComponent )
     }
     
-    public var children:Array<Dir> {
+    public var children:Array<Entity> {
         assert(self.exists,"Dir must be exists to get children.< \(path) >")
         var loadError: NSError?
-        let children =   self.fileManager.contentsOfDirectoryAtPath(path, error: &loadError)
+        let contents =   self.fileManager.contentsOfDirectoryAtPath(path, error: &loadError)
         if let error = loadError {
             println("Error< \(error.localizedDescription) >")
         }
         
-        return [self]
+        return contents!.map({ [unowned self] content in
+            return self.entityFromFile(content as String)
+        })
         
+    }
+    
+    public var contents:Array<Entity> {
+        return self.children
     }
     
     public func file(path:NSString) -> File {
@@ -84,6 +90,25 @@ public class Dir: Entity {
             ? Either(success: self)
             : Either(failure: "Failed to mkdir.< error:\(error?.localizedDescription) path:\(path) >");
         
+    }
+    
+    public func generate() -> GeneratorOf<Entity> {
+        let iterator = fileManager.enumeratorAtPath(path)
+        return GeneratorOf<Entity>() {
+            let optionalContent = iterator?.nextObject() as String?
+            if var content = optionalContent {
+                return self.entityFromFile(content)
+            } else {
+                return .None
+            }
+        }
+    }
+    
+    private func entityFromFile(file:NSString) -> Entity{
+            let fullPath = self.path.stringByAppendingPathComponent(file)
+            return Entity.isDir( fullPath )
+                ? self.subdir(file)
+                : self.file(file);
     }
     
 }

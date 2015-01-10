@@ -57,13 +57,11 @@ class SwiftPathClassTests: XCTestCase {
         )
         
         let documentsDir = Dir.documentsDir
-        println(documentsDir)
         XCTAssertTrue(
             documentsDir.asString.match("/data/Documents")
         )
         
         let cacheDir = Dir.cacheDir
-        println(cacheDir)
         XCTAssertTrue(
             cacheDir.asString.match("/data/Library/Caches")
         )
@@ -104,7 +102,6 @@ class SwiftPathClassTests: XCTestCase {
     
     func testTouchAndRemove(){
         let file = sandboxDir.file("file.txt")
-        println(file)
         
         XCTAssertFalse( file.exists )
        
@@ -168,7 +165,6 @@ class SwiftPathClassTests: XCTestCase {
             XCTAssertTrue( comic.exists )
             
             let relativeComic = self.sandboxDir.file("books/comics/DragonBall")
-            println(relativeComic)
             XCTAssertTrue( relativeComic.exists )
         }
         
@@ -212,6 +208,49 @@ class SwiftPathClassTests: XCTestCase {
     // MARK
     
     func testChildren(){
+        
+        sandboxDir.file("foo.txt").touch()
+        sandboxDir.file("bar.txt").touch()
+        
+        let subdir = sandboxDir.subdir("mydir")
+        subdir.mkdir()
+        subdir.file("wow.txt").touch()
+        subdir.file("wooo.txt").touch()
+       
+        let boxContents = sandboxDir.contents
+        XCTAssertEqual( boxContents.count, 3)
+        
+        for content in boxContents {
+            XCTAssertTrue(content.exists)
+        }
+        
+        let dirsInContents = boxContents.filter({content in
+            return content.isDir
+        })
+        XCTAssertEqual( dirsInContents.count, 1)
+        XCTAssertEqual( dirsInContents.first!.path , subdir.path )
+        
+    }
+    
+    func testIterator(){
+        
+        sandboxDir.file("foo.txt").touch()
+        sandboxDir.file("bar.txt").touch()
+        
+        let subdir = sandboxDir.subdir("mydir")
+        subdir.mkdir()
+       
+        var contentCount = 0
+        var dirCount     = 0
+        
+        for content in sandboxDir {
+            XCTAssertTrue(content.exists)
+            contentCount++
+            if( content.isDir ){ dirCount++ }
+        }
+        XCTAssertEqual( contentCount, 3)
+        XCTAssertEqual( dirCount, 1)
+       
         
     }
     

@@ -9,6 +9,21 @@
 public class Entity {
     
     lazy var fileManager = NSFileManager.defaultManager()
+    
+    public class func isDir(path:NSString) -> Bool {
+        var isDirectory: ObjCBool = false
+        let isFileExists = NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory:&isDirectory)
+        
+        return isDirectory ? true : false
+    }
+    
+    public class func isExists(path:NSString) -> Bool {
+        
+        return true
+    }
+    
+    
+    
     public let path:String
     public var attributes:NSDictionary{
         get { return self.loadAttributes() }
@@ -16,7 +31,6 @@ public class Entity {
     
     public init(_ p: String) {
         self.path = p
-        println(self.path)
     }
     
     public var asString : String{
