@@ -94,39 +94,3 @@ public func ??<S, E>(left: Either<S, E>, right: @autoclosure () -> S) -> Either<
         return Either(success: right())
     })
 }
-
-//
-//  EitherExtention For SwiftFilePath
-//  SwiftFilePath
-//
-//  Created by nori0620 on 2015/01/10.
-//  Copyright (c) 2015年 nori0620. All rights reserved.
-//
-
-extension Either {
-    
-    public var isSuccess : Bool {
-        switch self {
-            case .Success(let success):
-                return true
-            case .Failure(let failure):
-                return false
-        }
-    }
-    
-    public var isFailure: Bool {
-        switch self {
-            case .Success(let success):
-                return false
-            case .Failure(let failure):
-                return true
-        }
-    }
-   
-    // methods alias for SwiftFilePath
-    public var value: S? { return self.successValue }
-    public var error: F? { return self.failureValue }
-    
-}
-
-

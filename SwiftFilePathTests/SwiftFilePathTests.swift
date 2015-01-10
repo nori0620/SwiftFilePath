@@ -10,6 +10,8 @@ import XCTest
 
 import SwiftFilePath
 
+// MARK: Extensions as Test utils
+
 extension String {
     
     func match(pattern: String) -> Bool {
@@ -21,8 +23,32 @@ extension String {
 }
 
 
-class SwiftFilePathTests: XCTestCase {
+extension Either {
+    
+    var isSuccess : Bool {
+        switch self {
+            case .Success(let success):
+                return true
+            case .Failure(let failure):
+                return false
+        }
+    }
+    
+    var isFailure: Bool {
+        switch self {
+            case .Success(let success):
+                return false
+            case .Failure(let failure):
+                return true
+        }
+    }
+    
+}
 
+
+// MARK: Test cases
+
+class SwiftFilePathTests: XCTestCase {
     
     let sandboxDir = Dir.temporaryDir.subdir("sandbox")
     
@@ -256,23 +282,8 @@ class SwiftFilePathTests: XCTestCase {
     
     // MARK
     
-    func testResult(){
-        
-        locally {
-            let result  = Either<String,String>(success:"OK!")
-            XCTAssertTrue( result.isSuccess )
-            XCTAssertFalse( result.isFailure )
-            XCTAssertEqual( result.successValue!,"OK!" )
-            XCTAssertNil( result.error? )
-        }
-        
-        locally {
-            let result  = Either<String,String>(failure: "NG!")
-            XCTAssertFalse( result.isSuccess )
-            XCTAssertTrue( result.isFailure )
-            XCTAssertNil( result.successValue? )
-            XCTAssertEqual( result.error!,"NG!" )
-        }
+    func readWriteString(){
         
     }
-    }
+}
+    
