@@ -85,6 +85,4 @@ public class File: Entity {
             : Either(failure: "Failed to write file.< path:\(path) >");
     }
     
-    
-    
 }

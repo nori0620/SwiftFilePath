@@ -74,22 +74,22 @@ class SwiftFilePathTests: XCTestCase {
         
         let homeDir = Dir.homeDir
         XCTAssertTrue(
-            homeDir.asString.match("/data")
+            homeDir.toString.match("/data")
         )
         
         let temporaryDir = Dir.temporaryDir
         XCTAssertTrue(
-            temporaryDir.asString.match("/data/tmp/")
+            temporaryDir.toString.match("/data/tmp/")
         )
         
         let documentsDir = Dir.documentsDir
         XCTAssertTrue(
-            documentsDir.asString.match("/data/Documents")
+            documentsDir.toString.match("/data/Documents")
         )
         
         let cacheDir = Dir.cacheDir
         XCTAssertTrue(
-            cacheDir.asString.match("/data/Library/Caches")
+            cacheDir.toString.match("/data/Library/Caches")
         )
         
     }
@@ -231,7 +231,7 @@ class SwiftFilePathTests: XCTestCase {
         
     }
     
-    // MARK
+    // MARK:
     
     func testChildren(){
         
@@ -240,11 +240,10 @@ class SwiftFilePathTests: XCTestCase {
         
         let subdir = sandboxDir.subdir("mydir")
         subdir.mkdir()
-        subdir.file("wow.txt").touch()
-        subdir.file("wooo.txt").touch()
        
         let boxContents = sandboxDir.contents
         XCTAssertEqual( boxContents.count, 3)
+        XCTAssertEqual( subdir.contents.count, 0)
         
         for content in boxContents {
             XCTAssertTrue(content.exists)
@@ -280,7 +279,7 @@ class SwiftFilePathTests: XCTestCase {
         
     }
     
-    // MARK
+    // MARK:
     
     func testReadWriteString(){
         
@@ -341,5 +340,61 @@ class SwiftFilePathTests: XCTestCase {
             XCTAssertEqual( readData, empty )
         }
     }
-}
     
+    // MARK:
+    
+    func testCopyDir() {
+        
+        let srcDir  = sandboxDir.subdir("src")
+        let destDir = sandboxDir.subdir("dest")
+        srcDir.mkdir()
+        
+        let result = srcDir.copyTo( destDir )
+        XCTAssertTrue( result.isSuccess )
+        XCTAssertTrue( srcDir.exists )
+        XCTAssertTrue( destDir.exists )
+        
+    }
+    
+    func testCopyFile() {
+        
+        let srcFile = sandboxDir.file("foo.txt")
+        let destFile = sandboxDir.file("bar.txt")
+        srcFile.touch()
+        
+        let result = srcFile.copyTo( destFile )
+        XCTAssertTrue( result.isSuccess )
+        XCTAssertTrue( srcFile.exists )
+        XCTAssertTrue( destFile.exists )
+        
+    }
+    
+    // MARK:
+    
+    func testMoveDir() {
+        
+        let srcDir  = sandboxDir.subdir("src")
+        let destDir = sandboxDir.subdir("dest")
+        srcDir.mkdir()
+        
+        let result = srcDir.moveTo(destDir)
+        XCTAssertTrue( result.isSuccess )
+        XCTAssertFalse( srcDir.exists )
+        XCTAssertTrue( destDir.exists )
+        
+    }
+    
+    func testMoveFile() {
+        let srcFile = sandboxDir.file("foo.txt")
+        let destFile = sandboxDir.file("bar.txt")
+        srcFile.touch()
+        
+        let result = srcFile.moveTo( destFile )
+        XCTAssertTrue( result.isSuccess )
+        XCTAssertFalse( srcFile.exists )
+        XCTAssertTrue( destFile.exists )
+        
+        
+        
+    }
+}
