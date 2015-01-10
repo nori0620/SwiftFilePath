@@ -14,6 +14,7 @@
 		CC7833131A610299005E77C3 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833101A610299005E77C3 /* Entity.swift */; };
 		CC7833141A610299005E77C3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833111A610299005E77C3 /* File.swift */; };
 		CC78331C1A618186005E77C3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78331A1A61816B005E77C3 /* Either.swift */; };
+		CC78331E1A6186B7005E77C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78331D1A6186B7005E77C3 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		CC7833101A610299005E77C3 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		CC7833111A610299005E77C3 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		CC78331A1A61816B005E77C3 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		CC78331D1A6186B7005E77C3 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				CC7833111A610299005E77C3 /* File.swift */,
 				CC7832F11A610124005E77C3 /* SwiftFilePath.h */,
 				CC7832EF1A610124005E77C3 /* Supporting Files */,
+				CC78331D1A6186B7005E77C3 /* Result.swift */,
 			);
 			path = SwiftFilePath;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC78331C1A618186005E77C3 /* Either.swift in Sources */,
+				CC78331E1A6186B7005E77C3 /* Result.swift in Sources */,
 				CC7833141A610299005E77C3 /* File.swift in Sources */,
 				CC7833121A610299005E77C3 /* Dir.swift in Sources */,
 				CC7833131A610299005E77C3 /* Entity.swift in Sources */,
