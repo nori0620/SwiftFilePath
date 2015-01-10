@@ -24,6 +24,30 @@ public class File: Entity {
             : self.createEmptyFile()
     }
     
+    public func updateModificationDate(date: NSDate = NSDate() ) -> Either<File,String>{
+        var error: NSError?
+        let result = fileManager.setAttributes(
+            [NSFileModificationDate :date],
+            ofItemAtPath:path,
+                error:&error
+        )
+        return result
+            ? Either(success: self)
+            : Either(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path) >");
+    }
+    
+    private func createEmptyFile() -> Either<File,String>{
+        let result = fileManager.createFileAtPath(path,
+            contents:NSData(),
+            attributes:nil
+        )
+        return result
+            ? Either(success: self)
+            : Either(failure: "Failed to create file:\(path)");
+    }
+    
+    // MARK: - read/write String
+    
     public func readString() -> String? {
         var readError:NSError?
         let read = String(contentsOfFile: path,
@@ -48,26 +72,19 @@ public class File: Entity {
             : Either(failure: "Failed to write file.< error:\(error?.localizedDescription) path:\(path) >");
     }
     
-    public func updateModificationDate(date: NSDate = NSDate() ) -> Either<File,String>{
-        var error: NSError?
-        let result = fileManager.setAttributes(
-            [NSFileModificationDate :date],
-            ofItemAtPath:path,
-                error:&error
-        )
-        return result
-            ? Either(success: self)
-            : Either(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path) >");
+    // MARK: - read/write NSData
+    
+    public func readData() -> NSData? {
+        return NSData(contentsOfFile: path)
     }
     
-    private func createEmptyFile() -> Either<File,String>{
-        let result = fileManager.createFileAtPath(path,
-            contents:NSData(),
-            attributes:nil
-        )
+    public func writeData(data:NSData) -> Either<File,String> {
+        let result = data.writeToFile(path, atomically:true)
         return result
             ? Either(success: self)
-            : Either(failure: "Failed to create file:\(path)");
+            : Either(failure: "Failed to write file.< path:\(path) >");
     }
+    
+    
     
 }

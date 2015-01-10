@@ -312,7 +312,34 @@ class SwiftFilePathTests: XCTestCase {
         
         let binFile = sandboxDir.file("test.bin")
         
+        locally {
+            let string  = "HelloData"
+            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let result = binFile.writeData( data! )
+            XCTAssertTrue( result.isSuccess )
+            
+            let readData = binFile.readData()
+            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            XCTAssertEqual( readString, "HelloData")
+        }
         
+        locally {
+            let string  = "HelloData Again"
+            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let result = binFile.writeData( data! )
+            XCTAssertTrue( result.isSuccess )
+            
+            let readData = binFile.readData()
+            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            XCTAssertEqual( readString, "HelloData Again")
+        }
+        
+        locally {
+            binFile.remove()
+            let empty = NSData()
+            let readData = binFile.readData() ?? empty
+            XCTAssertEqual( readData, empty )
+        }
     }
 }
     
