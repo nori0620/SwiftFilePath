@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-public class File: Entity {
+public class File: Path {
     
     public var extention:NSString {
         return path.pathExtension

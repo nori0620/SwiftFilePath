@@ -37,7 +37,7 @@ extension Dir {
 }
 #endif
 
-public class Dir: Entity,SequenceType {
+public class Dir: Path,SequenceType {
 
     override public var isDir: Bool {
         return true;
@@ -47,7 +47,7 @@ public class Dir: Entity,SequenceType {
         return Dir( path.stringByDeletingLastPathComponent )
     }
     
-    public var children:Array<Entity> {
+    public var children:Array<Path> {
         assert(self.exists,"Dir must be exists to get children.< \(path) >")
         var loadError: NSError?
         let contents =   self.fileManager.contentsOfDirectoryAtPath(path, error: &loadError)
@@ -61,7 +61,7 @@ public class Dir: Entity,SequenceType {
         
     }
     
-    public var contents:Array<Entity> {
+    public var contents:Array<Path> {
         return self.children
     }
     
@@ -89,9 +89,9 @@ public class Dir: Entity,SequenceType {
         
     }
     
-    public func generate() -> GeneratorOf<Entity> {
+    public func generate() -> GeneratorOf<Path> {
         let iterator = fileManager.enumeratorAtPath(path)
-        return GeneratorOf<Entity>() {
+        return GeneratorOf<Path>() {
             let optionalContent = iterator?.nextObject() as String?
             if var content = optionalContent {
                 return self.entityFromFile(content)
@@ -101,9 +101,9 @@ public class Dir: Entity,SequenceType {
         }
     }
     
-    private func entityFromFile(file:NSString) -> Entity{
+    private func entityFromFile(file:NSString) -> Path{
             let fullPath = self.path.stringByAppendingPathComponent(file)
-            return Entity.isDir( fullPath )
+            return Path.isDir( fullPath )
                 ? self.subdir(file)
                 : self.file(file);
     }

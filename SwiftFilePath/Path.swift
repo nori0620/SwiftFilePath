@@ -1,12 +1,12 @@
 //
-//  Entity.swift
+//  Path.swift
 //  SwiftFilePath
 //
 //  Created by nori0620 on 2015/01/08.
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-public class Entity {
+public class Path {
     
     lazy var fileManager = NSFileManager.defaultManager()
     
@@ -47,7 +47,7 @@ public class Entity {
         return path.lastPathComponent
     }
     
-    public func remove() -> Result<Entity,String> {
+    public func remove() -> Result<Path,String> {
         assert(self.exists,"To remove file, file MUST be exists")
         var error: NSError?
         let result = fileManager.removeItemAtPath(path, error:&error)
@@ -56,7 +56,7 @@ public class Entity {
             : Result(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path)>");
     }
     
-    public func copyTo(toPath:Entity) -> Result<Entity,String> {
+    public func copyTo(toPath:Path) -> Result<Path,String> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
         let result = fileManager.copyItemAtPath(path,
@@ -67,7 +67,7 @@ public class Entity {
             : Result(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
     }
     
-    public func moveTo(toPath:Entity) -> Result<Entity,String> {
+    public func moveTo(toPath:Path) -> Result<Path,String> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
         let result = fileManager.moveItemAtPath(path,
@@ -92,7 +92,7 @@ public class Entity {
     
 }
 
-extension Entity:  Printable {
+extension Path:  Printable {
     public var description: String {
         return "\(NSStringFromClass(self.dynamicType))<path:\(path)>"
     }
