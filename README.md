@@ -1,4 +1,4 @@
-# SwiftPathClass
+# SwiftFilePath
 
 [![CI Status](http://img.shields.io/travis/nori0620/SwiftFilePath.svg?style=flat)](https://travis-ci.org/nori0620/SwiftFilePath)
 [![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-f2a77e.svg?style=flat)](https://github.com/Carthage/Carthage/)
