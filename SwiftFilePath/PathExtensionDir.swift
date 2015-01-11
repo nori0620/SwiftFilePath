@@ -39,7 +39,7 @@ extension Path {
 // Add Dir Behavior to Path by extension
 extension Path: SequenceType {
 
-    public var children:Array<Path> {
+    public var children:Array<Path>? {
         assert(self.isDir,"To get children, path must be dir< \(path_string) >")
         assert(self.exists,"Dir must be exists to get children.< \(path_string) >")
         var loadError: NSError?
@@ -55,7 +55,7 @@ extension Path: SequenceType {
         
     }
     
-    public var contents:Array<Path> {
+    public var contents:Array<Path>? {
         return self.children
     }
     

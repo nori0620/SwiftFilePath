@@ -93,7 +93,7 @@ class SwiftFilePathTests: XCTestCase {
         let file = sandboxDir.content("foo.txt")
         file.touch()
         let attributes = file.attributes
-        var permission:Int? = file.attributes.filePosixPermissions()
+        var permission:Int? = file.attributes!.filePosixPermissions()
         XCTAssertEqual( permission!,420);
         
     }
@@ -217,14 +217,14 @@ class SwiftFilePathTests: XCTestCase {
         subdir.mkdir()
        
         let boxContents = sandboxDir.contents
-        XCTAssertEqual( boxContents.count, 3)
-        XCTAssertEqual( subdir.contents.count, 0)
+        XCTAssertEqual( boxContents!.count, 3)
+        XCTAssertEqual( subdir.contents!.count, 0)
         
-        for content in boxContents {
+        for content in boxContents! {
             XCTAssertTrue(content.exists)
         }
         
-        let dirsInContents = boxContents.filter({content in
+        let dirsInContents = boxContents!.filter({content in
             return content.isDir
         })
         XCTAssertEqual( dirsInContents.count, 1)

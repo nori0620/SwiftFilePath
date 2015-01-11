@@ -29,7 +29,7 @@ public class Path {
     
     // MARK: - Instance val
     
-    public var attributes:NSDictionary{
+    public var attributes:NSDictionary?{
         get { return self.loadAttributes() }
     }
     
@@ -90,7 +90,7 @@ public class Path {
             : Result(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path_string) to-path:\(toPath)>");
     }
     
-    private func loadAttributes() -> NSDictionary {
+    private func loadAttributes() -> NSDictionary? {
         assert(self.exists,"File must be exists to load file.< \(path_string) >")
         var loadError: NSError?
         let result =   self.fileManager.attributesOfItemAtPath(path_string, error: &loadError)
@@ -99,7 +99,7 @@ public class Path {
             println("Error< \(error.localizedDescription) >")
         }
         
-        return result!
+        return result
     }
     
 }
