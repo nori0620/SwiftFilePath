@@ -38,7 +38,7 @@ Path.temporaryDir.toString()
 // "var/mobile/Containers/Data/Application/<UUID>/Library/tmp"
 ````
 
-##  Directories and files
+##  Access to other directories and files
 
 ```swift
 //  Get Path that indicate foo.txt file in Documents dir
