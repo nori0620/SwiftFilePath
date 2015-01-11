@@ -1,6 +1,10 @@
 # SwiftPathClass
 
 [![CI Status](http://img.shields.io/travis/nori0620/SwiftFilePath.svg?style=flat)](https://travis-ci.org/nori0620/SwiftFilePath)
+[![Carthage Compatibility](https://img.shields.io/badge/carthage-✓-f2a77e.svg?style=flat)](https://github.com/Carthage/Carthage/)
+[![Version](https://img.shields.io/cocoapods/v/SwiftFilePath.svg?style=flat)](http://cocoadocs.org/docsets/SwiftFilePath)
+[![License](https://img.shields.io/cocoapods/l/SwiftFilePath.svg?style=flat)](http://cocoadocs.org/docsets/SwiftFilePath)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftFilePath.svg?style=flat)](http://cocoadocs.org/docsets/SwiftFilePath)
 
 Simple and powerful wrapper for NSFileManager.
 
