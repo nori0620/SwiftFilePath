@@ -38,6 +38,10 @@ extension Path {
 
 // Add Dir Behavior to Path by extension
 extension Path: SequenceType {
+    
+    public subscript(filename: String) -> Path{
+        get { return self.content(filename) }
+    }
 
     public var children:Array<Path>? {
         assert(self.isDir,"To get children, path must be dir< \(path_string) >")

@@ -72,7 +72,9 @@ class SwiftFilePathTests: XCTestCase {
     
     func testDir(){
         let dir = sandboxDir.content("bar")
+        let dir2 = sandboxDir["bar"]
         XCTAssertEqual( dir.basename, "bar")
+        XCTAssertEqual( dir.toString(), dir2.toString() )
     }
     
     func testFile() {
