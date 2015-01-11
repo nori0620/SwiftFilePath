@@ -201,7 +201,7 @@ Path.documentsDir["subdir"].mkdir()
 To install it, simply add the following line to your Podfile:
 
 ```ruby
-pod  'SwiftPathClass',
+pod  'SwiftFilePath',
 ```
 
 ( Currently, to install the framework via CocoaPods you need to use pre-release version.)
