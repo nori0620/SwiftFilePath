@@ -25,7 +25,7 @@ extension String {
 
 class SwiftFilePathTests: XCTestCase {
     
-    let sandboxDir = Dir.temporaryDir.subdir("sandbox")
+    let sandboxDir = Path.temporaryDir.content("sandbox")
     
     override func setUp() {
         super.setUp()
@@ -47,50 +47,50 @@ class SwiftFilePathTests: XCTestCase {
     #if os(iOS)
     func testDirFactories() {
         
-        let homeDir = Dir.homeDir
+        let homeDir = Path.homeDir
         XCTAssertTrue(
-            homeDir.toString.match("/data")
+            homeDir.toString().match("/data")
         )
         
-        let temporaryDir = Dir.temporaryDir
+        let temporaryDir = Path.temporaryDir
         XCTAssertTrue(
-            temporaryDir.toString.match("/data/tmp/")
-        )
+            temporaryDir.toString().match("/data/tmp/")
+        )                        
         
-        let documentsDir = Dir.documentsDir
+        let documentsDir = Path.documentsDir
         XCTAssertTrue(
-            documentsDir.toString.match("/data/Documents")
-        )
+            documentsDir.toString().match("/data/Documents")
+        )                        
         
-        let cacheDir = Dir.cacheDir
+        let cacheDir = Path.cacheDir
         XCTAssertTrue(
-            cacheDir.toString.match("/data/Library/Caches")
-        )
+            cacheDir.toString().match("/data/Library/Caches")
+        )                    
         
     }
     #endif
     
     func testDir(){
-        let dir = sandboxDir.subdir("bar")
+        let dir = sandboxDir.content("bar")
         XCTAssertEqual( dir.basename, "bar")
     }
     
     func testFile() {
-        let file = sandboxDir.file("hoge.txt")
+        let file = sandboxDir.content("hoge.txt")
         XCTAssertTrue(
-            file.path.match("/data/tmp/sandbox/hoge.txt")
+            file.toString().match("/data/tmp/sandbox/hoge.txt")
         )
-        XCTAssertEqual( file.extention, "txt")
+        XCTAssertEqual( file.ext , "txt")
         XCTAssertEqual( file.basename, "hoge.txt")
         XCTAssertTrue(
-            file.dir.path.match("/data/tmp/sandbox")
+            file.parent.toString().match("/data/tmp/sandbox")
         )
         
     }
     
     func testAttributes() {
         
-        let file = sandboxDir.file("foo.txt")
+        let file = sandboxDir.content("foo.txt")
         file.touch()
         let attributes = file.attributes
         var permission:Int? = file.attributes.filePosixPermissions()
@@ -102,7 +102,7 @@ class SwiftFilePathTests: XCTestCase {
     // MARK:
     
     func testTouchAndRemove(){
-        let file = sandboxDir.file("file.txt")
+        let file = sandboxDir.content("file.txt")
         
         XCTAssertFalse( file.exists )
        
@@ -122,9 +122,9 @@ class SwiftFilePathTests: XCTestCase {
     
     func testMkdirAndRemove(){
         
-        let fruitsDir = sandboxDir.subdir("fruits")
+        let fruitsDir = sandboxDir.content("fruits")
         XCTAssertTrue(
-            fruitsDir.path.match("/data/tmp/sandbox/fruits")
+            fruitsDir.toString().match("/data/tmp/sandbox/fruits")
         )
         XCTAssertFalse( fruitsDir.exists )
         
@@ -145,9 +145,9 @@ class SwiftFilePathTests: XCTestCase {
     
     func testDirHierarchy() {
        
-        let booksDir  = sandboxDir.subdir("books")
-        let comicsDir = booksDir.subdir("comics")
-        let comic = comicsDir.file("DragonBall")
+        let booksDir  = sandboxDir.content("books")
+        let comicsDir = booksDir.content("comics")
+        let comic = comicsDir.content("DragonBall")
         
         XCTAssertFalse( booksDir.exists )
         XCTAssertFalse( comicsDir.exists )
@@ -165,7 +165,7 @@ class SwiftFilePathTests: XCTestCase {
             XCTAssertTrue( result.isSuccess )
             XCTAssertTrue( comic.exists )
             
-            let relativeComic = self.sandboxDir.file("books/comics/DragonBall")
+            let relativeComic = self.sandboxDir.content("books/comics/DragonBall")
             XCTAssertTrue( relativeComic.exists )
         }
         
@@ -180,28 +180,28 @@ class SwiftFilePathTests: XCTestCase {
     }
     
     func testSubDir() {
-        let dir = sandboxDir.subdir("foo")
+        let dir = sandboxDir.content("foo")
         XCTAssertTrue(
-            dir.path.match("/data/tmp/sandbox/foo")
+            dir.toString().match("/data/tmp/sandbox/foo")
         )
     }
     
     func testParentDir() {
-        let dir = sandboxDir.subdir("foo")
+        let dir = sandboxDir.content("foo")
         XCTAssertTrue(
-            dir.path.match("/data/tmp/sandbox/foo")
+            dir.toString().match("/data/tmp/sandbox/foo")
         )
         XCTAssertTrue(
-            dir.parent.path.match("/data/tmp/sandbox")
+            dir.parent.toString().match("/data/tmp/sandbox")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.path.match("/data")
+            dir.parent.parent.parent.toString().match("/data")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.parent.path.match("/")
+            dir.parent.parent.parent.parent.toString().match("/")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.parent.parent.parent.path.match("/")
+            dir.parent.parent.parent.parent.parent.parent.toString().match("/")
         )
         
     }
@@ -210,10 +210,10 @@ class SwiftFilePathTests: XCTestCase {
     
     func testChildren(){
         
-        sandboxDir.file("foo.txt").touch()
-        sandboxDir.file("bar.txt").touch()
+        sandboxDir.content("foo.txt").touch()
+        sandboxDir.content("bar.txt").touch()
         
-        let subdir = sandboxDir.subdir("mydir")
+        let subdir = sandboxDir.content("mydir")
         subdir.mkdir()
        
         let boxContents = sandboxDir.contents
@@ -228,16 +228,16 @@ class SwiftFilePathTests: XCTestCase {
             return content.isDir
         })
         XCTAssertEqual( dirsInContents.count, 1)
-        XCTAssertEqual( dirsInContents.first!.path , subdir.path )
+        XCTAssertEqual( dirsInContents.first!.toString(), subdir.toString())
         
     }
     
     func testIterator(){
         
-        sandboxDir.file("foo.txt").touch()
-        sandboxDir.file("bar.txt").touch()
+        sandboxDir.content("foo.txt").touch()
+        sandboxDir.content("bar.txt").touch()
         
-        let subdir = sandboxDir.subdir("mydir")
+        let subdir = sandboxDir.content("mydir")
         subdir.mkdir()
        
         var contentCount = 0
@@ -258,7 +258,7 @@ class SwiftFilePathTests: XCTestCase {
     
     func testReadWriteString(){
         
-        let textFile = sandboxDir.file("test.txt")
+        let textFile = sandboxDir.content("test.txt")
         
         locally {
             let result = textFile.writeString("foo")
@@ -284,7 +284,7 @@ class SwiftFilePathTests: XCTestCase {
     
     func testReadWriteData(){
         
-        let binFile = sandboxDir.file("test.bin")
+        let binFile = sandboxDir.content("test.bin")
         
         locally {
             let string  = "HelloData"
@@ -320,8 +320,8 @@ class SwiftFilePathTests: XCTestCase {
     
     func testCopyDir() {
         
-        let srcDir  = sandboxDir.subdir("src")
-        let destDir = sandboxDir.subdir("dest")
+        let srcDir  = sandboxDir.content("src")
+        let destDir = sandboxDir.content("dest")
         srcDir.mkdir()
         
         let result = srcDir.copyTo( destDir )
@@ -333,8 +333,8 @@ class SwiftFilePathTests: XCTestCase {
     
     func testCopyFile() {
         
-        let srcFile = sandboxDir.file("foo.txt")
-        let destFile = sandboxDir.file("bar.txt")
+        let srcFile = sandboxDir.content("foo.txt")
+        let destFile = sandboxDir.content("bar.txt")
         srcFile.touch()
         
         let result = srcFile.copyTo( destFile )
@@ -348,8 +348,8 @@ class SwiftFilePathTests: XCTestCase {
     
     func testMoveDir() {
         
-        let srcDir  = sandboxDir.subdir("src")
-        let destDir = sandboxDir.subdir("dest")
+        let srcDir  = sandboxDir.content("src")
+        let destDir = sandboxDir.content("dest")
         srcDir.mkdir()
         
         let result = srcDir.moveTo(destDir)
@@ -360,8 +360,8 @@ class SwiftFilePathTests: XCTestCase {
     }
     
     func testMoveFile() {
-        let srcFile = sandboxDir.file("foo.txt")
-        let destFile = sandboxDir.file("bar.txt")
+        let srcFile = sandboxDir.content("foo.txt")
+        let destFile = sandboxDir.content("bar.txt")
         srcFile.touch()
         
         let result = srcFile.moveTo( destFile )

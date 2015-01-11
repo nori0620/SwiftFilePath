@@ -10,10 +10,10 @@
 		CC7832F21A610124005E77C3 /* SwiftFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7832F11A610124005E77C3 /* SwiftFilePath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC7832F81A610125005E77C3 /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */; };
 		CC7832FF1A610125005E77C3 /* SwiftFilePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */; };
-		CC7833121A610299005E77C3 /* Dir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78330F1A610299005E77C3 /* Dir.swift */; };
-		CC7833141A610299005E77C3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7833111A610299005E77C3 /* File.swift */; };
 		CC78331E1A6186B7005E77C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78331D1A6186B7005E77C3 /* Result.swift */; };
 		CCB3A04C1A6254910034E098 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04B1A6254910034E098 /* Path.swift */; };
+		CCB3A04F1A625A780034E098 /* PathExtensionDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04D1A625A780034E098 /* PathExtensionDir.swift */; };
+		CCB3A0501A625A780034E098 /* PathExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04E1A625A780034E098 /* PathExtensionFile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +33,10 @@
 		CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFilePathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7832FD1A610125005E77C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFilePathTests.swift; sourceTree = "<group>"; };
-		CC78330F1A610299005E77C3 /* Dir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dir.swift; sourceTree = "<group>"; };
-		CC7833111A610299005E77C3 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		CC78331D1A6186B7005E77C3 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		CCB3A04B1A6254910034E098 /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		CCB3A04D1A625A780034E098 /* PathExtensionDir.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathExtensionDir.swift; sourceTree = "<group>"; };
+		CCB3A04E1A625A780034E098 /* PathExtensionFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathExtensionFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +79,9 @@
 		CC7832EE1A610124005E77C3 /* SwiftFilePath */ = {
 			isa = PBXGroup;
 			children = (
+				CCB3A04D1A625A780034E098 /* PathExtensionDir.swift */,
+				CCB3A04E1A625A780034E098 /* PathExtensionFile.swift */,
 				CCB3A04B1A6254910034E098 /* Path.swift */,
-				CC78330F1A610299005E77C3 /* Dir.swift */,
-				CC7833111A610299005E77C3 /* File.swift */,
 				CC7832F11A610124005E77C3 /* SwiftFilePath.h */,
 				CC7832EF1A610124005E77C3 /* Supporting Files */,
 				CC78331D1A6186B7005E77C3 /* Result.swift */,
@@ -221,10 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB3A0501A625A780034E098 /* PathExtensionFile.swift in Sources */,
 				CC78331E1A6186B7005E77C3 /* Result.swift in Sources */,
-				CC7833141A610299005E77C3 /* File.swift in Sources */,
+				CCB3A04F1A625A780034E098 /* PathExtensionDir.swift in Sources */,
 				CCB3A04C1A6254910034E098 /* Path.swift in Sources */,
-				CC7833121A610299005E77C3 /* Dir.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

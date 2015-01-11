@@ -8,7 +8,7 @@
 
 public class Path {
     
-    lazy var fileManager = NSFileManager.defaultManager()
+    // MARK: - Class methods
     
     public class func isDir(path:NSString) -> Bool {
         var isDirectory: ObjCBool = false
@@ -17,71 +17,83 @@ public class Path {
         return isDirectory ? true : false
     }
     
-    public class func isExists(path:NSString) -> Bool {
-        
-        return true
+    // MARK: - Instance properties and initializer
+    
+    lazy var fileManager = NSFileManager.defaultManager()
+    public let path_string:String
+    
+    
+    public init(_ p: String) {
+        self.path_string = p
     }
     
-    public let path:String
+    // MARK: - Instance val
+    
     public var attributes:NSDictionary{
         get { return self.loadAttributes() }
     }
     
-    public init(_ p: String) {
-        self.path = p
-    }
-    
-    public var toString : String{
-        return self.path
+    public var asString: String {
+        return path_string
     }
     
     public var exists: Bool {
-        return fileManager.fileExistsAtPath(path)
+        return fileManager.fileExistsAtPath(path_string)
     }
     
     public var isDir: Bool {
-        return false;
+        return Path.isDir(path_string);
     }
     
     public var basename:NSString {
-        return path.lastPathComponent
+        return path_string.lastPathComponent
+    }
+    
+    public var parent: Path{
+        return Path( path_string.stringByDeletingLastPathComponent )
+    }
+    
+    // MARK: - Instance methods
+    
+    public func toString() -> String {
+        return path_string
     }
     
     public func remove() -> Result<Path,String> {
         assert(self.exists,"To remove file, file MUST be exists")
         var error: NSError?
-        let result = fileManager.removeItemAtPath(path, error:&error)
+        let result = fileManager.removeItemAtPath(path_string, error:&error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path)>");
+            : Result(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path_string)>");
     }
     
     public func copyTo(toPath:Path) -> Result<Path,String> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
-        let result = fileManager.copyItemAtPath(path,
-            toPath: toPath.toString,
+        let result = fileManager.copyItemAtPath(path_string,
+            toPath: toPath.toString(),
              error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
+            : Result(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path_string) to-path:\(toPath)>");
     }
     
     public func moveTo(toPath:Path) -> Result<Path,String> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
-        let result = fileManager.moveItemAtPath(path,
-            toPath: toPath.toString,
+        let result = fileManager.moveItemAtPath(path_string,
+            toPath: toPath.toString(),
              error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path) to-path:\(toPath)>");
+            : Result(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path_string) to-path:\(toPath)>");
     }
     
     private func loadAttributes() -> NSDictionary {
-        assert(self.exists,"File must be exists to load file.< \(path) >")
+        assert(self.exists,"File must be exists to load file.< \(path_string) >")
         var loadError: NSError?
-        let result =   self.fileManager.attributesOfItemAtPath(path, error: &loadError)
+        let result =   self.fileManager.attributesOfItemAtPath(path_string, error: &loadError)
         
         if let error = loadError {
             println("Error< \(error.localizedDescription) >")
@@ -92,9 +104,11 @@ public class Path {
     
 }
 
+// MARK: -
+
 extension Path:  Printable {
     public var description: String {
-        return "\(NSStringFromClass(self.dynamicType))<path:\(path)>"
+        return "\(NSStringFromClass(self.dynamicType))<path:\(path_string)>"
     }
 }
 
