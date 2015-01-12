@@ -409,6 +409,7 @@ class SwiftFilePathTests: XCTestCase {
         XCTAssertEqual( result.error!, "NG!" )
         XCTAssertTrue( callOnFailure )
         XCTAssertFalse( callOnSuccess )
+        XCTAssertFalse( true )
     }
     
 }
