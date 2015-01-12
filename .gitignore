@@ -16,6 +16,9 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
+vendor
+Gemfile.lock
+.bundle
 
 # CocoaPods
 #
