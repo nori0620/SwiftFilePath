@@ -1,2 +1,4 @@
 language: objective-c
-script: make
+
+script:
+  - bundle exec rake default
