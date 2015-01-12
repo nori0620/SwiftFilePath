@@ -1,5 +1,5 @@
 SCHEME      = "SwiftFilePath"
-DESTINATION = "name=iPhone Retina (4-inch),OS=8.0"
+DESTINATION = "name=iPhone 5,OS=8.1"
 
 desc "unit test"
 task :default do
