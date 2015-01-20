@@ -165,7 +165,7 @@ let data = binFile.readData()!
 
 ## Error handling
 
-`touch`/`remove`/`copyTo`/`writeTo`/`mkdir` returns `Result` Object.
+`touch`/`remove`/`copyTo`/`writeTo`/`mkdir` returns `Result` as Enum.
 
 If operation is success, `Result` has `value` property.
 If operation is failure,`Result` has `error` property.
@@ -188,7 +188,7 @@ Path.documentsDir["subdir"].mkdir()
     .onSuccess({ (value:Path) in 
         println( value )
     })
-    .onFailure({ (error:String) in 
+    .onFailure({ (error:NSError) in 
         println( error )
     })
 ````

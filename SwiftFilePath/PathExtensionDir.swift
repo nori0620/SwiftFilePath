@@ -71,10 +71,7 @@ extension Path: SequenceType {
         return self.content(path)
     }
     
-    public func mkdir() -> Result<Path,String> {
-        if( self.exists ){
-            return Result(failure: "Already exists.<path:\(path_string)>")
-        }
+    public func mkdir() -> Result<Path,NSError> {
         var error: NSError?
         let result = fileManager.createDirectoryAtPath(path_string,
             withIntermediateDirectories:true,
@@ -83,7 +80,7 @@ extension Path: SequenceType {
         )
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to mkdir.< error:\(error?.localizedDescription) path:\(path_string) >");
+            : Result(failure: error!)
         
     }
     

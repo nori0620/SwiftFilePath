@@ -122,6 +122,7 @@ class SwiftFilePathTests: XCTestCase {
             XCTAssertFalse( file.exists )
         }
         
+        
     }
     
     func testMkdirAndRemove(){
@@ -406,6 +407,7 @@ class SwiftFilePathTests: XCTestCase {
                 callOnFailure = true
                 XCTAssertEqual(error,"NG!")
             })
+        
         
         XCTAssertTrue( result.isFailure )
         XCTAssertEqual( result.error!, "NG!" )

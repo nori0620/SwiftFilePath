@@ -59,16 +59,16 @@ public class Path {
         return path_string
     }
     
-    public func remove() -> Result<Path,String> {
+    public func remove() -> Result<Path,NSError> {
         assert(self.exists,"To remove file, file MUST be exists")
         var error: NSError?
         let result = fileManager.removeItemAtPath(path_string, error:&error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to remove file.<error:\(error?.localizedDescription) path:\(path_string)>");
+            : Result(failure: error!);
     }
     
-    public func copyTo(toPath:Path) -> Result<Path,String> {
+    public func copyTo(toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
         let result = fileManager.copyItemAtPath(path_string,
@@ -76,10 +76,10 @@ public class Path {
              error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to copy file.<error:\(error?.localizedDescription) from-path:\(path_string) to-path:\(toPath)>");
+            : Result(failure: error!)
     }
     
-    public func moveTo(toPath:Path) -> Result<Path,String> {
+    public func moveTo(toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
         let result = fileManager.moveItemAtPath(path_string,
@@ -87,7 +87,7 @@ public class Path {
              error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to move file.<error:\(error?.localizedDescription) from-path:\(path_string) to-path:\(toPath)>");
+            : Result(failure: error!)
     }
     
     private func loadAttributes() -> NSDictionary? {

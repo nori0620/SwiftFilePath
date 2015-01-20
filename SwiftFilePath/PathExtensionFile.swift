@@ -13,14 +13,14 @@ extension  Path {
         return path_string.pathExtension
     }
     
-    public func touch() -> Result<Path,String> {
+    public func touch() -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT touch to dir")
         return self.exists
             ? self.updateModificationDate()
             : self.createEmptyFile()
     }
     
-    public func updateModificationDate(date: NSDate = NSDate() ) -> Result<Path,String>{
+    public func updateModificationDate(date: NSDate = NSDate() ) -> Result<Path,NSError>{
         var error: NSError?
         let result = fileManager.setAttributes(
             [NSFileModificationDate :date],
@@ -29,17 +29,11 @@ extension  Path {
         )
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to modify file.< error:\(error?.localizedDescription) path:\(path_string) >");
+            : Result(failure: error!)
     }
     
-    private func createEmptyFile() -> Result<Path,String>{
-        let result = fileManager.createFileAtPath(path_string,
-            contents:NSData(),
-            attributes:nil
-        )
-        return result
-            ? Result(success: self)
-            : Result(failure: "Failed to create file:\(path_string)");
+    private func createEmptyFile() -> Result<Path,NSError>{
+        return self.writeString("")
     }
     
     // MARK: - read/write String
@@ -58,7 +52,7 @@ extension  Path {
         return read
     }
     
-    public func writeString(string:String) -> Result<Path,String> {
+    public func writeString(string:String) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
         var error: NSError?
         let result = string.writeToFile(path_string,
@@ -67,7 +61,7 @@ extension  Path {
             error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to write file.< error:\(error?.localizedDescription) path:\(path_string) >");
+            : Result(failure: error!)
     }
     
     // MARK: - read/write NSData
@@ -77,12 +71,13 @@ extension  Path {
         return NSData(contentsOfFile: path_string)
     }
     
-    public func writeData(data:NSData) -> Result<Path,String> {
+    public func writeData(data:NSData) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
-        let result = data.writeToFile(path_string, atomically:true)
+        var error: NSError?
+        let result = data.writeToFile(path_string, options:.DataWritingAtomic, error: &error)
         return result
             ? Result(success: self)
-            : Result(failure: "Failed to write file.< path:\(path_string) >");
+            : Result(failure: error!)
     }
     
 }
