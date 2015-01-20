@@ -68,7 +68,7 @@ extension Path: SequenceType {
     }
     
     public func child(path:NSString) -> Path {
-        return self.child(path)
+        return self.content(path)
     }
     
     public func mkdir() -> Result<Path,String> {
