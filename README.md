@@ -115,7 +115,7 @@ jsonFile.attributes!.fileModificationDate()! // 2015-01-11 11:30:11 +0000
 jsonFile.attributes!.fileSize() // 2341
 ````
 
-##  File opeartion
+##  File operation
 
 Create ( or delete ) dir and files. 
 
