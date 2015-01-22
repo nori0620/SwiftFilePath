@@ -155,7 +155,7 @@ let text = textFile.readString()! // HelloSwift
 Write ( or read ) binary  data.
 
 ```swift
-//  Wirte binary data.
+//  Write binary data.
 let binFile = Path.documentsDir["foo.bin"]
 binFile.writeData( NSData()  )
 
