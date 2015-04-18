@@ -12,7 +12,7 @@ public class Path {
     
     public class func isDir(path:NSString) -> Bool {
         var isDirectory: ObjCBool = false
-        let isFileExists = NSFileManager.defaultManager().fileExistsAtPath(path, isDirectory:&isDirectory)
+        let isFileExists = NSFileManager.defaultManager().fileExistsAtPath(path as String, isDirectory:&isDirectory)
         
         return isDirectory ? true : false
     }
