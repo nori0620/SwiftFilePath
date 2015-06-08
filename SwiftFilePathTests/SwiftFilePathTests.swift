@@ -24,7 +24,8 @@ extension String {
 // MARK: Test cases
 
 class SwiftFilePathTests: XCTestCase {
-    
+//    #if os(iOS)
+	
     let sandboxDir = Path.temporaryDir.content("sandbox")
     
     override func setUp() {
@@ -44,7 +45,7 @@ class SwiftFilePathTests: XCTestCase {
     
     // MARK:
     
-    #if os(iOS)
+
     func testDirFactories() {
         
         let homeDir = Path.homeDir
@@ -68,7 +69,6 @@ class SwiftFilePathTests: XCTestCase {
         )                    
         
     }
-    #endif
     
     func testDir(){
         let dir = sandboxDir.content("bar")
@@ -124,7 +124,8 @@ class SwiftFilePathTests: XCTestCase {
         
         
     }
-    
+//	#endif
+	
     func testMkdirAndRemove(){
         
         let fruitsDir = sandboxDir.content("fruits")

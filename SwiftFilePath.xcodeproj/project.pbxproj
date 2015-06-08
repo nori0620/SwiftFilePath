@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC5B91621B25E0EB005D7562 /* SwiftFilePath-Mac.h in Headers */ = {isa = PBXBuildFile; fileRef = AC5B91611B25E0EB005D7562 /* SwiftFilePath-Mac.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC5B91681B25E0EB005D7562 /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5B915D1B25E0EA005D7562 /* SwiftFilePath.framework */; };
+		AC5B916F1B25E0EB005D7562 /* SwiftFilePath_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5B916E1B25E0EB005D7562 /* SwiftFilePath_MacTests.swift */; };
+		AC5B91761B25E0F7005D7562 /* PathExtensionDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04D1A625A780034E098 /* PathExtensionDir.swift */; };
+		AC5B91771B25E0F7005D7562 /* PathExtensionFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04E1A625A780034E098 /* PathExtensionFile.swift */; };
+		AC5B91781B25E0F7005D7562 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB3A04B1A6254910034E098 /* Path.swift */; };
+		AC5B91791B25E0FB005D7562 /* SwiftFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7832F11A610124005E77C3 /* SwiftFilePath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC5B917A1B25E102005D7562 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC78331D1A6186B7005E77C3 /* Result.swift */; };
+		AC5B917B1B25E10D005D7562 /* SwiftFilePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */; };
 		CC7832F21A610124005E77C3 /* SwiftFilePath.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7832F11A610124005E77C3 /* SwiftFilePath.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC7832F81A610125005E77C3 /* SwiftFilePath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */; };
 		CC7832FF1A610125005E77C3 /* SwiftFilePathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7832FE1A610125005E77C3 /* SwiftFilePathTests.swift */; };
@@ -17,6 +26,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AC5B91691B25E0EB005D7562 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC7832E31A610124005E77C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC5B915C1B25E0EA005D7562;
+			remoteInfo = "SwiftFilePath-Mac";
+		};
 		CC7832F91A610125005E77C3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CC7832E31A610124005E77C3 /* Project object */;
@@ -27,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC5B915D1B25E0EA005D7562 /* SwiftFilePath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftFilePath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5B91601B25E0EB005D7562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC5B91611B25E0EB005D7562 /* SwiftFilePath-Mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftFilePath-Mac.h"; sourceTree = "<group>"; };
+		AC5B91671B25E0EB005D7562 /* SwiftFilePath-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftFilePath-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC5B916D1B25E0EB005D7562 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC5B916E1B25E0EB005D7562 /* SwiftFilePath_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFilePath_MacTests.swift; sourceTree = "<group>"; };
 		CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftFilePath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7832F01A610124005E77C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC7832F11A610124005E77C3 /* SwiftFilePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftFilePath.h; sourceTree = "<group>"; };
@@ -40,6 +62,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AC5B91591B25E0EA005D7562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5B91641B25E0EB005D7562 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5B91681B25E0EB005D7562 /* SwiftFilePath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC7832E81A610124005E77C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,11 +95,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC5B915E1B25E0EB005D7562 /* SwiftFilePath-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B91611B25E0EB005D7562 /* SwiftFilePath-Mac.h */,
+				AC5B915F1B25E0EB005D7562 /* Supporting Files */,
+			);
+			path = "SwiftFilePath-Mac";
+			sourceTree = "<group>";
+		};
+		AC5B915F1B25E0EB005D7562 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B91601B25E0EB005D7562 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AC5B916B1B25E0EB005D7562 /* SwiftFilePath-MacTests */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B916E1B25E0EB005D7562 /* SwiftFilePath_MacTests.swift */,
+				AC5B916C1B25E0EB005D7562 /* Supporting Files */,
+			);
+			path = "SwiftFilePath-MacTests";
+			sourceTree = "<group>";
+		};
+		AC5B916C1B25E0EB005D7562 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AC5B916D1B25E0EB005D7562 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		CC7832E21A610124005E77C3 = {
 			isa = PBXGroup;
 			children = (
 				CC7832EE1A610124005E77C3 /* SwiftFilePath */,
 				CC7832FB1A610125005E77C3 /* SwiftFilePathTests */,
+				AC5B915E1B25E0EB005D7562 /* SwiftFilePath-Mac */,
+				AC5B916B1B25E0EB005D7562 /* SwiftFilePath-MacTests */,
 				CC7832ED1A610124005E77C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +145,8 @@
 			children = (
 				CC7832EC1A610124005E77C3 /* SwiftFilePath.framework */,
 				CC7832F71A610125005E77C3 /* SwiftFilePathTests.xctest */,
+				AC5B915D1B25E0EA005D7562 /* SwiftFilePath.framework */,
+				AC5B91671B25E0EB005D7562 /* SwiftFilePath-MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,6 +192,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		AC5B915A1B25E0EA005D7562 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5B91621B25E0EB005D7562 /* SwiftFilePath-Mac.h in Headers */,
+				AC5B91791B25E0FB005D7562 /* SwiftFilePath.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC7832E91A610124005E77C3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +212,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		AC5B915C1B25E0EA005D7562 /* SwiftFilePath-Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC5B91741B25E0EB005D7562 /* Build configuration list for PBXNativeTarget "SwiftFilePath-Mac" */;
+			buildPhases = (
+				AC5B91581B25E0EA005D7562 /* Sources */,
+				AC5B91591B25E0EA005D7562 /* Frameworks */,
+				AC5B915A1B25E0EA005D7562 /* Headers */,
+				AC5B915B1B25E0EA005D7562 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftFilePath-Mac";
+			productName = "SwiftFilePath-Mac";
+			productReference = AC5B915D1B25E0EA005D7562 /* SwiftFilePath.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		AC5B91661B25E0EB005D7562 /* SwiftFilePath-MacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC5B91751B25E0EB005D7562 /* Build configuration list for PBXNativeTarget "SwiftFilePath-MacTests" */;
+			buildPhases = (
+				AC5B91631B25E0EB005D7562 /* Sources */,
+				AC5B91641B25E0EB005D7562 /* Frameworks */,
+				AC5B91651B25E0EB005D7562 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC5B916A1B25E0EB005D7562 /* PBXTargetDependency */,
+			);
+			name = "SwiftFilePath-MacTests";
+			productName = "SwiftFilePath-MacTests";
+			productReference = AC5B91671B25E0EB005D7562 /* SwiftFilePath-MacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CC7832EB1A610124005E77C3 /* SwiftFilePath */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC7833021A610125005E77C3 /* Build configuration list for PBXNativeTarget "SwiftFilePath" */;
@@ -173,6 +293,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Norihiro Sakamoto";
 				TargetAttributes = {
+					AC5B915C1B25E0EA005D7562 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					AC5B91661B25E0EB005D7562 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					CC7832EB1A610124005E77C3 = {
 						CreatedOnToolsVersion = 6.1;
 					};
@@ -195,11 +321,27 @@
 			targets = (
 				CC7832EB1A610124005E77C3 /* SwiftFilePath */,
 				CC7832F61A610125005E77C3 /* SwiftFilePathTests */,
+				AC5B915C1B25E0EA005D7562 /* SwiftFilePath-Mac */,
+				AC5B91661B25E0EB005D7562 /* SwiftFilePath-MacTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AC5B915B1B25E0EA005D7562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5B91651B25E0EB005D7562 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC7832EA1A610124005E77C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -217,6 +359,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AC5B91581B25E0EA005D7562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5B91771B25E0F7005D7562 /* PathExtensionFile.swift in Sources */,
+				AC5B91781B25E0F7005D7562 /* Path.swift in Sources */,
+				AC5B917A1B25E102005D7562 /* Result.swift in Sources */,
+				AC5B91761B25E0F7005D7562 /* PathExtensionDir.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC5B91631B25E0EB005D7562 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC5B917B1B25E10D005D7562 /* SwiftFilePathTests.swift in Sources */,
+				AC5B916F1B25E0EB005D7562 /* SwiftFilePath_MacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CC7832E71A610124005E77C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,6 +401,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AC5B916A1B25E0EB005D7562 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC5B915C1B25E0EA005D7562 /* SwiftFilePath-Mac */;
+			targetProxy = AC5B91691B25E0EB005D7562 /* PBXContainerItemProxy */;
+		};
 		CC7832FA1A610125005E77C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CC7832EB1A610124005E77C3 /* SwiftFilePath */;
@@ -247,6 +414,96 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		AC5B91701B25E0EB005D7562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SwiftFilePath-Mac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_MODULE_NAME = SwiftFilePath;
+				PRODUCT_NAME = SwiftFilePath;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		AC5B91711B25E0EB005D7562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SwiftFilePath-Mac/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_MODULE_NAME = SwiftFilePath;
+				PRODUCT_NAME = SwiftFilePath;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AC5B91721B25E0EB005D7562 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SwiftFilePath-MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		AC5B91731B25E0EB005D7562 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "SwiftFilePath-MacTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		CC7833001A610125005E77C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -397,6 +654,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AC5B91741B25E0EB005D7562 /* Build configuration list for PBXNativeTarget "SwiftFilePath-Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5B91701B25E0EB005D7562 /* Debug */,
+				AC5B91711B25E0EB005D7562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AC5B91751B25E0EB005D7562 /* Build configuration list for PBXNativeTarget "SwiftFilePath-MacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5B91721B25E0EB005D7562 /* Debug */,
+				AC5B91731B25E0EB005D7562 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CC7832E61A610124005E77C3 /* Build configuration list for PBXProject "SwiftFilePath" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -7,7 +7,7 @@
 //
 
 // Instance Factories for accessing to readable iOS dirs.
-#if os(iOS)
+//#if os(iOS)
 extension Path {
     
     public class var homeDir :Path{
@@ -34,7 +34,7 @@ extension Path {
     }
     
 }
-#endif
+//#endif
 
 // Add Dir Behavior to Path by extension
 extension Path: SequenceType {
