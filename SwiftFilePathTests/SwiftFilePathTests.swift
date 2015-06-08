@@ -16,7 +16,7 @@ extension String {
     func match(pattern: String) -> Bool {
         var error : NSError?
         let matcher = NSRegularExpression(pattern: pattern, options: nil, error: &error)
-        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, self.utf16Count)) != 0
+        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, count(self.utf16))) != 0
     }
     
 }
@@ -24,7 +24,8 @@ extension String {
 // MARK: Test cases
 
 class SwiftFilePathTests: XCTestCase {
-    
+//    #if os(iOS)
+	
     let sandboxDir = Path.temporaryDir.content("sandbox")
     
     override func setUp() {
@@ -44,7 +45,7 @@ class SwiftFilePathTests: XCTestCase {
     
     // MARK:
     
-    #if os(iOS)
+
     func testDirFactories() {
         
         let homeDir = Path.homeDir
@@ -68,7 +69,6 @@ class SwiftFilePathTests: XCTestCase {
         )                    
         
     }
-    #endif
     
     func testDir(){
         let dir = sandboxDir.content("bar")
@@ -124,7 +124,8 @@ class SwiftFilePathTests: XCTestCase {
         
         
     }
-    
+//	#endif
+	
     func testMkdirAndRemove(){
         
         let fruitsDir = sandboxDir.content("fruits")

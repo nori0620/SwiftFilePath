@@ -6,7 +6,11 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#endif
 
 //! Project version number for SwiftFilePath.
 FOUNDATION_EXPORT double SwiftFilePathVersionNumber;
