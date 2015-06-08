@@ -16,7 +16,7 @@ extension String {
     func match(pattern: String) -> Bool {
         var error : NSError?
         let matcher = NSRegularExpression(pattern: pattern, options: nil, error: &error)
-        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, self.utf16Count)) != 0
+        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, count(self.utf16))) != 0
     }
     
 }
