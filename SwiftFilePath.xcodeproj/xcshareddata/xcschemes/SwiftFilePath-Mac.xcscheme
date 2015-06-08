@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC5B915C1B25E0EA005D7562"
-               BuildableName = "SwiftFilePath-Mac.framework"
+               BuildableName = "SwiftFilePath.framework"
                BlueprintName = "SwiftFilePath-Mac"
                ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC5B915C1B25E0EA005D7562"
-            BuildableName = "SwiftFilePath-Mac.framework"
+            BuildableName = "SwiftFilePath.framework"
             BlueprintName = "SwiftFilePath-Mac"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC5B915C1B25E0EA005D7562"
-            BuildableName = "SwiftFilePath-Mac.framework"
+            BuildableName = "SwiftFilePath.framework"
             BlueprintName = "SwiftFilePath-Mac"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC5B915C1B25E0EA005D7562"
-            BuildableName = "SwiftFilePath-Mac.framework"
+            BuildableName = "SwiftFilePath.framework"
             BlueprintName = "SwiftFilePath-Mac"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
