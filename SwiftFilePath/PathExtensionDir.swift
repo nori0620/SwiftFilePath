@@ -29,7 +29,7 @@ extension Path {
     }
     
     private class func userDomainOf(pathEnum:NSSearchPathDirectory)->Path{
-        let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] as String
+        let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] as! String
         return Path( pathString )
     }
     
@@ -54,7 +54,7 @@ extension Path: SequenceType {
         }
         
         return contents!.map({ [unowned self] content in
-            return self.content(content as String)
+            return self.content(content as! String)
         })
         
     }
@@ -64,7 +64,7 @@ extension Path: SequenceType {
     }
     
     public func content(path_string:NSString) -> Path {
-        return Path( self.path_string.stringByAppendingPathComponent(path_string) )
+        return Path( self.path_string.stringByAppendingPathComponent(path_string as String) )
     }
     
     public func child(path:NSString) -> Path {
@@ -88,7 +88,7 @@ extension Path: SequenceType {
         assert(self.isDir,"To get iterator, path must be dir< \(path_string) >")
         let iterator = fileManager.enumeratorAtPath(path_string)
         return GeneratorOf<Path>() {
-            let optionalContent = iterator?.nextObject() as String?
+            let optionalContent = iterator?.nextObject() as? String
             if var content = optionalContent {
                 return self.content(content)
             } else {
