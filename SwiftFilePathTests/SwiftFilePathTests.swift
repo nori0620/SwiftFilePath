@@ -14,9 +14,13 @@ import SwiftFilePath
 extension String {
     
     func match(pattern: String) -> Bool {
-        var error : NSError?
-        let matcher = NSRegularExpression(pattern: pattern, options: nil, error: &error)
-        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, count(self.utf16))) != 0
+        let matcher: NSRegularExpression?
+        do {
+            matcher = try NSRegularExpression(pattern: pattern, options: [])
+        } catch _ as NSError {
+            matcher = nil
+        }
+        return matcher?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
     
 }
@@ -96,8 +100,7 @@ class SwiftFilePathTests: XCTestCase {
         
         let file = sandboxDir.content("foo.txt")
         file.touch()
-        let attributes = file.attributes
-        var permission:Int? = file.attributes!.filePosixPermissions()
+        let permission:Int? = file.attributes!.filePosixPermissions()
         XCTAssertEqual( permission!,420);
         
     }
@@ -396,6 +399,7 @@ class SwiftFilePathTests: XCTestCase {
         XCTAssertTrue( callOnSuccess )
     }
     
+    
     func testFailureResult() {
         var callOnFailure = false
         var callOnSuccess = false
@@ -413,6 +417,43 @@ class SwiftFilePathTests: XCTestCase {
         XCTAssertEqual( result.error!, "NG!" )
         XCTAssertTrue( callOnFailure )
         XCTAssertFalse( callOnSuccess )
+    }
+    
+    func testSuccessResultWithSwitch() {
+        
+        locally { // On success.
+            var callOnFailure = false
+            var callOnSuccess = false
+            let result = Result<Int,String>(success:200);
+            
+            switch result {
+                case .Success(let value):
+                    callOnSuccess = true
+                    print(value)
+                case .Failure(let error):
+                    callOnFailure = true
+                    print(error)
+            }
+            XCTAssertFalse( callOnFailure )
+            XCTAssertTrue( callOnSuccess )
+        }
+        
+        locally { // On Error.
+            var callOnFailure = false
+            var callOnSuccess = false
+            let result = Result<Int,String>(failure: "ERROR!!!");
+            
+            switch result {
+                case .Success(let value):
+                    callOnSuccess = true
+                    print(value)
+                case .Failure(let error):
+                    callOnFailure = true
+                    print(error)
+            }
+            XCTAssertTrue( callOnFailure )
+            XCTAssertFalse( callOnSuccess )
+        }
     }
     
 }
