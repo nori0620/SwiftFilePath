@@ -46,11 +46,11 @@ public class Path {
     }
     
     public var basename:NSString {
-        return path_string.lastPathComponent
+        return NSString(string: path_string).lastPathComponent
     }
     
     public var parent: Path{
-        return Path( path_string.stringByDeletingLastPathComponent )
+        return Path( NSString(string: path_string).stringByDeletingLastPathComponent )
     }
     
     // MARK: - Instance methods

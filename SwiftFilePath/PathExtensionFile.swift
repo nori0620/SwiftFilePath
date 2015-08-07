@@ -6,11 +6,12 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
+
 // Add File Behavior to Path by extension
 extension  Path {
     
     public var ext:NSString {
-        return path_string.pathExtension
+        return NSString(string: path_string).pathExtension
     }
     
     public func touch() -> Result<Path,NSError> {
