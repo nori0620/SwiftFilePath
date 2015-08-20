@@ -38,14 +38,14 @@ public enum Result<S,F> {
         switch self {
         case .Success(let container):
             return container.content
-        case .Failure(let container):
+        case .Failure( _):
             return .None
         }
     }
     
     public var error:F? {
         switch self {
-        case .Success(let container):
+        case .Success( _):
             return .None
         case .Failure(let container):
             return container.content
@@ -54,7 +54,7 @@ public enum Result<S,F> {
     
     public func onFailure(handler:(F) -> Void ) -> Result<S,F> {
         switch self {
-        case .Success(let container):
+        case .Success( _):
             return self
         case .Failure(let container):
             handler( container.content )
@@ -67,7 +67,7 @@ public enum Result<S,F> {
         case .Success(let container):
             handler( container.content )
             return self
-        case .Failure(let container):
+        case .Failure( _):
             return self
         }
     }
