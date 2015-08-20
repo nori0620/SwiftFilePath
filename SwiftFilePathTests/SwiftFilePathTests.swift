@@ -14,9 +14,13 @@ import SwiftFilePath
 extension String {
     
     func match(pattern: String) -> Bool {
-        var error : NSError?
-        let matcher = NSRegularExpression(pattern: pattern, options: nil, error: &error)
-        return matcher?.numberOfMatchesInString(self, options: nil, range: NSMakeRange(0, count(self.utf16))) != 0
+        let matcher: NSRegularExpression?
+        do {
+            matcher = try NSRegularExpression(pattern: pattern, options: [])
+        } catch _ as NSError {
+            matcher = nil
+        }
+        return matcher?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
     
 }
@@ -96,8 +100,8 @@ class SwiftFilePathTests: XCTestCase {
         
         let file = sandboxDir.content("foo.txt")
         file.touch()
-        let attributes = file.attributes
-        var permission:Int? = file.attributes!.filePosixPermissions()
+        _ = file.attributes
+        let permission:Int? = file.attributes!.filePosixPermissions()
         XCTAssertEqual( permission!,420);
         
     }
