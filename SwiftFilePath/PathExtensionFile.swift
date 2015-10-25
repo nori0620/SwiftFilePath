@@ -10,7 +10,7 @@
 extension  Path {
     
     public var ext:NSString {
-        return path_string.pathExtension
+        return NSURL(fileURLWithPath:path_string).pathExtension!
     }
     
     public func touch() -> Result<Path,NSError> {

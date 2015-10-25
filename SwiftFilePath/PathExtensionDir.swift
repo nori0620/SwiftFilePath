@@ -70,7 +70,11 @@ extension Path: SequenceType {
     }
     
     public func content(path_string:NSString) -> Path {
-        return Path( self.path_string.stringByAppendingPathComponent(path_string as String) )
+        return Path(
+            NSURL(fileURLWithPath: self.path_string)
+                .URLByAppendingPathComponent( path_string as String )
+                .path!
+        )
     }
     
     public func child(path:NSString) -> Path {
