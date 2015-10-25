@@ -8,15 +8,15 @@
 
 public enum Result<S,F> {
     
-    case Success(ResultContainer<S>)
-    case Failure(ResultContainer<F>)
+    case Success(S)
+    case Failure(F)
     
     public init(success:S){
-        self = .Success( ResultContainer(success) )
+        self = .Success(success)
     }
     
     public init(failure:F){
-        self = .Failure( ResultContainer(failure) )
+        self = .Failure(failure)
     }
     
     public var isSuccess:Bool {
@@ -36,47 +36,40 @@ public enum Result<S,F> {
     
     public var value:S? {
         switch self {
-        case .Success(let container):
-            return container.content
-        case .Failure(let container):
+        case .Success(let success):
+            return success
+        case .Failure(_):
             return .None
         }
     }
     
     public var error:F? {
         switch self {
-        case .Success(let container):
+        case .Success(_):
             return .None
-        case .Failure(let container):
-            return container.content
+        case .Failure(let error):
+            return error
         }
     }
     
     public func onFailure(handler:(F) -> Void ) -> Result<S,F> {
         switch self {
-        case .Success(let container):
+        case .Success(_):
             return self
-        case .Failure(let container):
-            handler( container.content )
+        case .Failure(let error):
+            handler( error )
             return self
         }
     }
     
     public func onSuccess(handler:(S) -> Void ) -> Result<S,F> {
         switch self {
-        case .Success(let container):
-            handler( container.content )
+        case .Success(let success):
+            handler(success )
             return self
-        case .Failure(let container):
+        case .Failure(_):
             return self
         }
     }
    
-}
-
-public class ResultContainer<T> {
-    let content:T
-    init(_ content:T){
-        self.content = content
-    }
 }

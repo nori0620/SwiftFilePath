@@ -10,7 +10,7 @@
 extension  Path {
     
     public var ext:NSString {
-        return path_string.pathExtension
+        return NSURL(fileURLWithPath:path_string).pathExtension!
     }
     
     public func touch() -> Result<Path,NSError> {
@@ -22,11 +22,16 @@ extension  Path {
     
     public func updateModificationDate(date: NSDate = NSDate() ) -> Result<Path,NSError>{
         var error: NSError?
-        let result = fileManager.setAttributes(
-            [NSFileModificationDate :date],
-            ofItemAtPath:path_string,
-                error:&error
-        )
+        let result: Bool
+        do {
+            try fileManager.setAttributes(
+                        [NSFileModificationDate :date],
+                        ofItemAtPath:path_string)
+            result = true
+        } catch let error1 as NSError {
+            error = error1
+            result = false
+        }
         return result
             ? Result(success: self)
             : Result(failure: error!)
@@ -41,12 +46,17 @@ extension  Path {
     public func readString() -> String? {
         assert(!self.isDir,"Can NOT read data from  dir")
         var readError:NSError?
-        let read = String(contentsOfFile: path_string,
-                                encoding: NSUTF8StringEncoding,
-                                   error: &readError)
+        let read: String?
+        do {
+            read = try String(contentsOfFile: path_string,
+                                            encoding: NSUTF8StringEncoding)
+        } catch let error as NSError {
+            readError = error
+            read = nil
+        }
         
         if let error = readError {
-            println("readError< \(error.localizedDescription) >")
+            print("readError< \(error.localizedDescription) >")
         }
         
         return read
@@ -55,10 +65,16 @@ extension  Path {
     public func writeString(string:String) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
         var error: NSError?
-        let result = string.writeToFile(path_string,
-            atomically:true,
-            encoding: NSUTF8StringEncoding,
-            error: &error)
+        let result: Bool
+        do {
+            try string.writeToFile(path_string,
+                        atomically:true,
+                        encoding: NSUTF8StringEncoding)
+            result = true
+        } catch let error1 as NSError {
+            error = error1
+            result = false
+        }
         return result
             ? Result(success: self)
             : Result(failure: error!)
@@ -74,7 +90,14 @@ extension  Path {
     public func writeData(data:NSData) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
         var error: NSError?
-        let result = data.writeToFile(path_string, options:.DataWritingAtomic, error: &error)
+        let result: Bool
+        do {
+            try data.writeToFile(path_string, options:.DataWritingAtomic)
+            result = true
+        } catch let error1 as NSError {
+            error = error1
+            result = false
+        }
         return result
             ? Result(success: self)
             : Result(failure: error!)

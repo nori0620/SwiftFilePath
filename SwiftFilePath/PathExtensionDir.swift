@@ -29,7 +29,7 @@ extension Path {
     }
     
     private class func userDomainOf(pathEnum:NSSearchPathDirectory)->Path{
-        let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] as! String
+        let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] 
         return Path( pathString )
     }
     
@@ -47,10 +47,16 @@ extension Path: SequenceType {
         assert(self.isDir,"To get children, path must be dir< \(path_string) >")
         assert(self.exists,"Dir must be exists to get children.< \(path_string) >")
         var loadError: NSError?
-        let contents =   self.fileManager.contentsOfDirectoryAtPath(path_string
-            , error: &loadError)
+        let contents: [AnyObject]?
+        do {
+            contents = try self.fileManager.contentsOfDirectoryAtPath(path_string
+                        )
+        } catch let error as NSError {
+            loadError = error
+            contents = nil
+        }
         if let error = loadError {
-            println("Error< \(error.localizedDescription) >")
+            print("Error< \(error.localizedDescription) >")
         }
         
         return contents!.map({ [unowned self] content in
@@ -64,7 +70,11 @@ extension Path: SequenceType {
     }
     
     public func content(path_string:NSString) -> Path {
-        return Path( self.path_string.stringByAppendingPathComponent(path_string as! String) )
+        return Path(
+            NSURL(fileURLWithPath: self.path_string)
+                .URLByAppendingPathComponent( path_string as String )
+                .path!
+        )
     }
     
     public func child(path:NSString) -> Path {
@@ -73,23 +83,28 @@ extension Path: SequenceType {
     
     public func mkdir() -> Result<Path,NSError> {
         var error: NSError?
-        let result = fileManager.createDirectoryAtPath(path_string,
-            withIntermediateDirectories:true,
-                attributes:nil,
-                error: &error
-        )
+        let result: Bool
+        do {
+            try fileManager.createDirectoryAtPath(path_string,
+                        withIntermediateDirectories:true,
+                            attributes:nil)
+            result = true
+        } catch let error1 as NSError {
+            error = error1
+            result = false
+        }
         return result
             ? Result(success: self)
             : Result(failure: error!)
         
     }
     
-    public func generate() -> GeneratorOf<Path> {
+    public func generate() -> AnyGenerator<Path> {
         assert(self.isDir,"To get iterator, path must be dir< \(path_string) >")
         let iterator = fileManager.enumeratorAtPath(path_string)
-        return GeneratorOf<Path>() {
+        return anyGenerator() {
             let optionalContent = iterator?.nextObject() as! String?
-            if var content = optionalContent {
+            if let content = optionalContent {
                 return self.content(content)
             } else {
                 return .None
