@@ -28,7 +28,11 @@ extension Path {
         return Path.userDomainOf(.CachesDirectory)
     }
     
-    private class func userDomainOf(pathEnum:NSSearchPathDirectory)->Path{
+    public class var applicationSupportDir: Path {
+        return Path.userDomainOf(.ApplicationSupportDirectory)
+    }
+    
+    public class func userDomainOf(pathEnum:NSSearchPathDirectory)->Path{
         let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] 
         return Path( pathString )
     }
