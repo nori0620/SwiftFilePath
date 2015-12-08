@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 Norihiro Sakamoto. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SwiftFilePath.
 FOUNDATION_EXPORT double SwiftFilePathVersionNumber;

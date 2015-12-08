@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,21 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC7832EB1A610124005E77C3"
                BuildableName = "SwiftFilePath.framework"
-               BlueprintName = "SwiftFilePath"
-               ReferencedContainer = "container:SwiftFilePath.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CC7832F61A610125005E77C3"
-               BuildableName = "SwiftFilePathTests.xctest"
-               BlueprintName = "SwiftFilePathTests"
+               BlueprintName = "SwiftFilePath-iOS"
                ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC7832F61A610125005E77C3"
-               BuildableName = "SwiftFilePathTests.xctest"
-               BlueprintName = "SwiftFilePathTests"
+               BuildableName = "SwiftFilePath-iOS Tests.xctest"
+               BlueprintName = "SwiftFilePath-iOS Tests"
                ReferencedContainer = "container:SwiftFilePath.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -58,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC7832EB1A610124005E77C3"
             BuildableName = "SwiftFilePath.framework"
-            BlueprintName = "SwiftFilePath"
+            BlueprintName = "SwiftFilePath-iOS"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC7832EB1A610124005E77C3"
             BuildableName = "SwiftFilePath.framework"
-            BlueprintName = "SwiftFilePath"
+            BlueprintName = "SwiftFilePath-iOS"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -98,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC7832EB1A610124005E77C3"
             BuildableName = "SwiftFilePath.framework"
-            BlueprintName = "SwiftFilePath"
+            BlueprintName = "SwiftFilePath-iOS"
             ReferencedContainer = "container:SwiftFilePath.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
