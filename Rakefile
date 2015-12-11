@@ -1,4 +1,4 @@
-SCHEME      = "SwiftFilePath"
+SCHEME      = "SwiftFilePath-iOS"
 DESTINATION = "name=iPhone 5,OS=8.1"
 
 desc "unit test"

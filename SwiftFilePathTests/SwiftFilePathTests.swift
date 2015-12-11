@@ -29,7 +29,11 @@ extension String {
 
 class SwiftFilePathTests: XCTestCase {
     
+    #if os(iOS)
     let sandboxDir = Path.temporaryDir.content("sandbox")
+    #else
+    let sandboxDir = Path("data/tmp/sandbox")
+    #endif
     
     override func setUp() {
         super.setUp()
