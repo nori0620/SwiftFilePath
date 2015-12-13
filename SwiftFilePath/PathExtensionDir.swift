@@ -27,6 +27,12 @@ extension Path {
     public class var cacheDir:Path {
         return Path.userDomainOf(.CachesDirectory)
     }
+
+    public class func groupDir(identifier:String)->Path {
+        let pathString = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(identifier)!.path
+        return Path( pathString! )
+    }
+    
     
     private class func userDomainOf(pathEnum:NSSearchPathDirectory)->Path{
         let pathString = NSSearchPathForDirectoriesInDomains(pathEnum, .UserDomainMask, true)[0] 
