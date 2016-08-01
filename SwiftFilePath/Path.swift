@@ -10,15 +10,15 @@ public class Path {
     
     // MARK: - Class methods
     
-    public class func isDir(path:NSString) -> Bool {
+    public class func isDir(_ path:NSString) -> Bool {
         var isDirectory: ObjCBool = false
-        NSFileManager.defaultManager().fileExistsAtPath(path as String, isDirectory:&isDirectory)
+        FileManager.default.fileExists(atPath: path as String, isDirectory:&isDirectory)
         return isDirectory ? true : false
     }
     
     // MARK: - Instance properties and initializer
     
-    lazy var fileManager = NSFileManager.defaultManager()
+    lazy var fileManager = FileManager.default
     public let path_string:String
     
     
@@ -37,7 +37,7 @@ public class Path {
     }
     
     public var exists: Bool {
-        return fileManager.fileExistsAtPath(path_string)
+        return fileManager.fileExists(atPath: path_string)
     }
     
     public var isDir: Bool {
@@ -49,7 +49,7 @@ public class Path {
     }
     
     public var parent: Path{
-        return Path( (path_string as NSString ).stringByDeletingLastPathComponent )
+        return Path( (path_string as NSString ).deletingLastPathComponent )
     }
     
     // MARK: - Instance methods
@@ -63,7 +63,7 @@ public class Path {
         var error: NSError?
         let result: Bool
         do {
-            try fileManager.removeItemAtPath(path_string)
+            try fileManager.removeItem(atPath: path_string)
             result = true
         } catch let error1 as NSError {
             error = error1
@@ -74,12 +74,12 @@ public class Path {
             : Result(failure: error!);
     }
     
-    public func copyTo(toPath:Path) -> Result<Path,NSError> {
+    public func copyTo(_ toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
         let result: Bool
         do {
-            try fileManager.copyItemAtPath(path_string,
+            try fileManager.copyItem(atPath: path_string,
                         toPath: toPath.toString())
             result = true
         } catch let error1 as NSError {
@@ -91,12 +91,12 @@ public class Path {
             : Result(failure: error!)
     }
     
-    public func moveTo(toPath:Path) -> Result<Path,NSError> {
+    public func moveTo(_ toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
         let result: Bool
         do {
-            try fileManager.moveItemAtPath(path_string,
+            try fileManager.moveItem(atPath: path_string,
                         toPath: toPath.toString())
             result = true
         } catch let error1 as NSError {
@@ -113,7 +113,7 @@ public class Path {
         var loadError: NSError?
         let result: [NSObject: AnyObject]?
         do {
-            result = try self.fileManager.attributesOfItemAtPath(path_string)
+            result = try self.fileManager.attributesOfItem(atPath: path_string)
         } catch let error as NSError {
             loadError = error
             result = nil

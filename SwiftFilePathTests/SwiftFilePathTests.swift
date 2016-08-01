@@ -14,13 +14,13 @@ import SwiftFilePath
 extension String {
     
     func match(pattern: String) -> Bool {
-        let matcher: NSRegularExpression?
+        let matcher: RegularExpression?
         do {
-            matcher = try NSRegularExpression(pattern: pattern, options: [])
+            matcher = try RegularExpression(pattern: pattern, options: [])
         } catch _ as NSError {
             matcher = nil
         }
-        return matcher?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
+        return matcher?.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
     
 }
@@ -53,22 +53,22 @@ class SwiftFilePathTests: XCTestCase {
         
         let homeDir = Path.homeDir
         XCTAssertTrue(
-            homeDir.toString().match("/data")
+            homeDir.toString().match(pattern: "/data")
         )
         
         let temporaryDir = Path.temporaryDir
         XCTAssertTrue(
-            temporaryDir.toString().match("/data/tmp/")
+            temporaryDir.toString().match(pattern: "/data/tmp/")
         )                        
         
         let documentsDir = Path.documentsDir
         XCTAssertTrue(
-            documentsDir.toString().match("/data/Documents")
+            documentsDir.toString().match(pattern: "/data/Documents")
         )                        
         
         let cacheDir = Path.cacheDir
         XCTAssertTrue(
-            cacheDir.toString().match("/data/Library/Caches")
+            cacheDir.toString().match(pattern: "/data/Library/Caches")
         )                    
         
     }
@@ -86,12 +86,12 @@ class SwiftFilePathTests: XCTestCase {
     func testFile() {
         let file = sandboxDir.content("hoge.txt")
         XCTAssertTrue(
-            file.toString().match("/data/tmp/sandbox/hoge.txt")
+            file.toString().match(pattern: "/data/tmp/sandbox/hoge.txt")
         )
         XCTAssertEqual( file.ext , "txt")
         XCTAssertEqual( file.basename, "hoge.txt")
         XCTAssertTrue(
-            file.parent.toString().match("/data/tmp/sandbox")
+            file.parent.toString().match(pattern: "/data/tmp/sandbox")
         )
         
     }
@@ -132,7 +132,7 @@ class SwiftFilePathTests: XCTestCase {
         
         let fruitsDir = sandboxDir.content("fruits")
         XCTAssertTrue(
-            fruitsDir.toString().match("/data/tmp/sandbox/fruits")
+            fruitsDir.toString().match(pattern: "/data/tmp/sandbox/fruits")
         )
         XCTAssertFalse( fruitsDir.exists )
         
@@ -190,26 +190,26 @@ class SwiftFilePathTests: XCTestCase {
     func testSubDir() {
         let dir = sandboxDir.content("foo")
         XCTAssertTrue(
-            dir.toString().match("/data/tmp/sandbox/foo")
+            dir.toString().match(pattern: "/data/tmp/sandbox/foo")
         )
     }
     
     func testParentDir() {
         let dir = sandboxDir.content("foo")
         XCTAssertTrue(
-            dir.toString().match("/data/tmp/sandbox/foo")
+            dir.toString().match(pattern: "/data/tmp/sandbox/foo")
         )
         XCTAssertTrue(
-            dir.parent.toString().match("/data/tmp/sandbox")
+            dir.parent.toString().match(pattern: "/data/tmp/sandbox")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.toString().match("/data")
+            dir.parent.parent.parent.toString().match(pattern: "/data")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.parent.toString().match("/")
+            dir.parent.parent.parent.parent.toString().match(pattern: "/")
         )
         XCTAssertTrue(
-            dir.parent.parent.parent.parent.parent.parent.toString().match("/")
+            dir.parent.parent.parent.parent.parent.parent.toString().match(pattern: "/")
         )
         
     }
@@ -253,8 +253,8 @@ class SwiftFilePathTests: XCTestCase {
         
         for content in sandboxDir {
             XCTAssertTrue(content.exists)
-            contentCount++
-            if( content.isDir ){ dirCount++ }
+            contentCount += 1
+            if( content.isDir ){ dirCount += 1 }
         }
         XCTAssertEqual( contentCount, 3)
         XCTAssertEqual( dirCount, 1)
@@ -296,23 +296,23 @@ class SwiftFilePathTests: XCTestCase {
         
         locally {
             let string  = "HelloData"
-            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let data    = string.data(using: String.Encoding.utf8)
             let result = binFile.writeData( data! )
             XCTAssertTrue( result.isSuccess )
             
             let readData = binFile.readData()
-            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            let readString = NSString(data: readData!, encoding: String.Encoding.utf8.rawValue)!
             XCTAssertEqual( readString, "HelloData")
         }
         
         locally {
             let string  = "HelloData Again"
-            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let data    = string.data(using: String.Encoding.utf8)
             let result = binFile.writeData( data! )
             XCTAssertTrue( result.isSuccess )
             
             let readData = binFile.readData()
-            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            let readString = NSString(data: readData!, encoding: String.Encoding.utf8.rawValue)!
             XCTAssertEqual( readString, "HelloData Again")
         }
         
@@ -427,10 +427,10 @@ class SwiftFilePathTests: XCTestCase {
             let result = Result<Int,String>(success:200);
             
             switch result {
-                case .Success(let value):
+                case .success(let value):
                     callOnSuccess = true
                     print(value)
-                case .Failure(let error):
+                case .failure(let error):
                     callOnFailure = true
                     print(error)
             }
@@ -444,10 +444,10 @@ class SwiftFilePathTests: XCTestCase {
             let result = Result<Int,String>(failure: "ERROR!!!");
             
             switch result {
-                case .Success(let value):
+                case .success(let value):
                     callOnSuccess = true
                     print(value)
-                case .Failure(let error):
+                case .failure(let error):
                     callOnFailure = true
                     print(error)
             }

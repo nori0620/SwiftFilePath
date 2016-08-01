@@ -8,66 +8,66 @@
 
 public enum Result<S,F> {
     
-    case Success(S)
-    case Failure(F)
+    case success(S)
+    case failure(F)
     
     public init(success:S){
-        self = .Success(success)
+        self = .success(success)
     }
     
     public init(failure:F){
-        self = .Failure(failure)
+        self = .failure(failure)
     }
     
     public var isSuccess:Bool {
         switch self {
-            case .Success: return true
-            case .Failure: return false
+            case .success: return true
+            case .failure: return false
         }
         
     }
     
     public var isFailure:Bool {
         switch self {
-            case .Success: return false
-            case .Failure: return true
+            case .success: return false
+            case .failure: return true
         }
     }
     
     public var value:S? {
         switch self {
-        case .Success(let success):
+        case .success(let success):
             return success
-        case .Failure(_):
-            return .None
+        case .failure(_):
+            return .none
         }
     }
     
     public var error:F? {
         switch self {
-        case .Success(_):
-            return .None
-        case .Failure(let error):
+        case .success(_):
+            return .none
+        case .failure(let error):
             return error
         }
     }
     
-    public func onFailure(handler:(F) -> Void ) -> Result<S,F> {
+    public func onFailure(_ handler:(F) -> Void ) -> Result<S,F> {
         switch self {
-        case .Success(_):
+        case .success(_):
             return self
-        case .Failure(let error):
+        case .failure(let error):
             handler( error )
             return self
         }
     }
     
-    public func onSuccess(handler:(S) -> Void ) -> Result<S,F> {
+    public func onSuccess(_ handler:(S) -> Void ) -> Result<S,F> {
         switch self {
-        case .Success(let success):
+        case .success(let success):
             handler(success )
             return self
-        case .Failure(_):
+        case .failure(_):
             return self
         }
     }
