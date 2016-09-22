@@ -257,8 +257,8 @@ class SwiftFilePathTests: XCTestCase {
         
         for content in sandboxDir {
             XCTAssertTrue(content.exists)
-            contentCount++
-            if( content.isDir ){ dirCount++ }
+            contentCount += 1
+            if( content.isDir ){ dirCount += 1 }
         }
         XCTAssertEqual( contentCount, 3)
         XCTAssertEqual( dirCount, 1)

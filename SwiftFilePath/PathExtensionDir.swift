@@ -72,7 +72,7 @@ extension Path: SequenceType {
     public func content(path_string:NSString) -> Path {
         return Path(
             NSURL(fileURLWithPath: self.path_string)
-                .URLByAppendingPathComponent( path_string as String )
+                .URLByAppendingPathComponent( path_string as String )!
                 .path!
         )
     }
@@ -102,7 +102,7 @@ extension Path: SequenceType {
     public func generate() -> AnyGenerator<Path> {
         assert(self.isDir,"To get iterator, path must be dir< \(path_string) >")
         let iterator = fileManager.enumeratorAtPath(path_string)
-        return anyGenerator() {
+        return AnyGenerator() {
             let optionalContent = iterator?.nextObject() as! String?
             if let content = optionalContent {
                 return self.content(content)
