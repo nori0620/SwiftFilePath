@@ -111,7 +111,7 @@ open class Path {
     fileprivate func loadAttributes() -> NSDictionary? {
         assert(self.exists,"File must be exists to load file.< \(path_string) >")
         var loadError: NSError?
-        let result: [AnyHashable: Any]?
+        let result: [FileAttributeKey : Any]?
         do {
             result = try self.fileManager.attributesOfItem(atPath: path_string)
         } catch let error as NSError {
