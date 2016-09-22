@@ -58,7 +58,7 @@ open class Path {
         return path_string
     }
     
-    open func remove() -> Result<Path,NSError> {
+    @discardableResult open func remove() -> Result<Path,NSError> {
         assert(self.exists,"To remove file, file MUST be exists")
         var error: NSError?
         let result: Bool
@@ -74,7 +74,7 @@ open class Path {
             : Result(failure: error!);
     }
     
-    open func copyTo(_ toPath:Path) -> Result<Path,NSError> {
+    @discardableResult open func copyTo(_ toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To copy file, file MUST be exists")
         var error: NSError?
         let result: Bool
@@ -91,7 +91,7 @@ open class Path {
             : Result(failure: error!)
     }
     
-    open func moveTo(_ toPath:Path) -> Result<Path,NSError> {
+    @discardableResult open func moveTo(_ toPath:Path) -> Result<Path,NSError> {
         assert(self.exists,"To move file, file MUST be exists")
         var error: NSError?
         let result: Bool

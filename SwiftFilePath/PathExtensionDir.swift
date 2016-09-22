@@ -80,7 +80,7 @@ extension Path: Sequence {
         return self.content(path)
     }
     
-    public func mkdir() -> Result<Path,NSError> {
+    @discardableResult public func mkdir() -> Result<Path,NSError> {
         var error: NSError?
         let result: Bool
         do {

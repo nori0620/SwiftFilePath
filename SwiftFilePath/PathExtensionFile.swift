@@ -13,14 +13,14 @@ extension  Path {
         return URL(fileURLWithPath:path_string).pathExtension as NSString
     }
     
-    public func touch() -> Result<Path,NSError> {
+    @discardableResult public func touch() -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT touch to dir")
         return self.exists
             ? self.updateModificationDate()
             : self.createEmptyFile()
     }
     
-    public func updateModificationDate(_ date: Date = Date() ) -> Result<Path,NSError>{
+    @discardableResult public func updateModificationDate(_ date: Date = Date() ) -> Result<Path,NSError>{
         var error: NSError?
         let result: Bool
         do {
@@ -37,7 +37,7 @@ extension  Path {
             : Result(failure: error!)
     }
     
-    fileprivate func createEmptyFile() -> Result<Path,NSError>{
+    @discardableResult fileprivate func createEmptyFile() -> Result<Path,NSError>{
         return self.writeString("")
     }
     
@@ -62,7 +62,7 @@ extension  Path {
         return read
     }
     
-    public func writeString(_ string:String) -> Result<Path,NSError> {
+    @discardableResult public func writeString(_ string:String) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
         var error: NSError?
         let result: Bool
@@ -87,7 +87,7 @@ extension  Path {
         return (try? Data(contentsOf: URL(fileURLWithPath: path_string)))
     }
     
-    public func writeData(_ data:Data) -> Result<Path,NSError> {
+    @discardableResult public func writeData(_ data:Data) -> Result<Path,NSError> {
         assert(!self.isDir,"Can NOT write data from  dir")
         var error: NSError?
         let result: Bool
