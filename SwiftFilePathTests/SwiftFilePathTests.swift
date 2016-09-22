@@ -13,14 +13,14 @@ import SwiftFilePath
 
 extension String {
     
-    func match(pattern: String) -> Bool {
+    func match(_ pattern: String) -> Bool {
         let matcher: NSRegularExpression?
         do {
             matcher = try NSRegularExpression(pattern: pattern, options: [])
         } catch _ as NSError {
             matcher = nil
         }
-        return matcher?.numberOfMatchesInString(self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
+        return matcher?.numberOfMatches(in: self, options: [], range: NSMakeRange(0, self.utf16.count)) != 0
     }
     
 }
@@ -45,7 +45,7 @@ class SwiftFilePathTests: XCTestCase {
         self.sandboxDir.remove()
     }
     
-    func locally(x: () -> ()) {
+    func locally(_ x: () -> ()) {
         x()
     }
     
@@ -300,29 +300,29 @@ class SwiftFilePathTests: XCTestCase {
         
         locally {
             let string  = "HelloData"
-            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let data    = string.data(using: String.Encoding.utf8)
             let result = binFile.writeData( data! )
             XCTAssertTrue( result.isSuccess )
             
             let readData = binFile.readData()
-            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            let readString = NSString(data: readData!, encoding: String.Encoding.utf8.rawValue)!
             XCTAssertEqual( readString, "HelloData")
         }
         
         locally {
             let string  = "HelloData Again"
-            let data    = string.dataUsingEncoding(NSUTF8StringEncoding)
+            let data    = string.data(using: String.Encoding.utf8)
             let result = binFile.writeData( data! )
             XCTAssertTrue( result.isSuccess )
             
             let readData = binFile.readData()
-            let readString = NSString(data: readData!, encoding: NSUTF8StringEncoding)!
+            let readString = NSString(data: readData!, encoding: String.Encoding.utf8.rawValue)!
             XCTAssertEqual( readString, "HelloData Again")
         }
         
         locally {
             binFile.remove()
-            let empty = NSData()
+            let empty = Data()
             let readData = binFile.readData() ?? empty
             XCTAssertEqual( readData, empty )
         }
@@ -431,10 +431,10 @@ class SwiftFilePathTests: XCTestCase {
             let result = Result<Int,String>(success:200);
             
             switch result {
-                case .Success(let value):
+                case .success(let value):
                     callOnSuccess = true
                     print(value)
-                case .Failure(let error):
+                case .failure(let error):
                     callOnFailure = true
                     print(error)
             }
@@ -448,10 +448,10 @@ class SwiftFilePathTests: XCTestCase {
             let result = Result<Int,String>(failure: "ERROR!!!");
             
             switch result {
-                case .Success(let value):
+                case .success(let value):
                     callOnSuccess = true
                     print(value)
-                case .Failure(let error):
+                case .failure(let error):
                     callOnFailure = true
                     print(error)
             }
