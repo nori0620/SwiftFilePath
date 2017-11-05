@@ -9,98 +9,71 @@
 // Add File Behavior to Path by extension
 extension  Path {
     
-    public var ext:NSString {
-        return NSURL(fileURLWithPath:path_string).pathExtension!
+    public var ext: String {
+        return url.pathExtension
     }
     
-    public func touch() -> Result<Path,NSError> {
+    @discardableResult
+    public func touch() -> Result<Path,Error> {
         assert(!self.isDir,"Can NOT touch to dir")
         return self.exists
             ? self.updateModificationDate()
             : self.createEmptyFile()
     }
     
-    public func updateModificationDate(date: NSDate = NSDate() ) -> Result<Path,NSError>{
-        var error: NSError?
-        let result: Bool
+    public func updateModificationDate(_ date: Date = Date() ) -> Result<Path,Error> {
         do {
-            try fileManager.setAttributes(
-                        [NSFileModificationDate :date],
-                        ofItemAtPath:path_string)
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try fileManager.setAttributes([.modificationDate: date], ofItemAtPath: url.path)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!)
     }
     
-    private func createEmptyFile() -> Result<Path,NSError>{
+    @discardableResult
+    private func createEmptyFile() -> Result<Path,Error> {
         return self.writeString("")
     }
     
     // MARK: - read/write String
-    
     public func readString() -> String? {
         assert(!self.isDir,"Can NOT read data from  dir")
-        var readError:NSError?
-        let read: String?
-        do {
-            read = try String(contentsOfFile: path_string,
-                                            encoding: NSUTF8StringEncoding)
-        } catch let error as NSError {
-            readError = error
-            read = nil
-        }
         
-        if let error = readError {
+        do {
+            return try String(contentsOf: url, encoding: .utf8)
+        } catch let error {
             print("readError< \(error.localizedDescription) >")
         }
-        
-        return read
+        return nil
     }
     
-    public func writeString(string:String) -> Result<Path,NSError> {
+    @discardableResult
+    public func writeString(_ string: String) -> Result<Path,Error> {
         assert(!self.isDir,"Can NOT write data from  dir")
-        var error: NSError?
-        let result: Bool
         do {
-            try string.writeToFile(path_string,
-                        atomically:true,
-                        encoding: NSUTF8StringEncoding)
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try string.write(to: url, atomically: true, encoding: .utf8)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!)
     }
     
     // MARK: - read/write NSData
     
-    public func readData() -> NSData? {
+    public func readData() -> Data? {
         assert(!self.isDir,"Can NOT read data from  dir")
-        return NSData(contentsOfFile: path_string)
+        return try? Data(contentsOf: url)
     }
     
-    public func writeData(data:NSData) -> Result<Path,NSError> {
+    @discardableResult
+    public func writeData(_ data: Data) -> Result<Path,Error> {
         assert(!self.isDir,"Can NOT write data from  dir")
-        var error: NSError?
-        let result: Bool
         do {
-            try data.writeToFile(path_string, options:.DataWritingAtomic)
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try data.write(to: url)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!)
     }
     
 }

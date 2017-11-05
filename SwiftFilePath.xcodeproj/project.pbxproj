@@ -366,7 +366,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Norihiro Sakamoto";
 				TargetAttributes = {
 					CC7832EB1A610124005E77C3 = {
@@ -598,6 +598,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -636,6 +637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -941,6 +943,7 @@
 				D63BC3AC1C172BCD0071D0E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D63BC3AD1C172BCD0071D0E2 /* Build configuration list for PBXNativeTarget "SwiftFilePath-tvOS Tests" */ = {
 			isa = XCConfigurationList;
@@ -949,6 +952,7 @@
 				D63BC3AF1C172BCD0071D0E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D63BC3BA1C172C540071D0E2 /* Build configuration list for PBXNativeTarget "SwiftFilePath-watchOS" */ = {
 			isa = XCConfigurationList;
@@ -957,6 +961,7 @@
 				D63BC3BC1C172C540071D0E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D63BC3D31C172C740071D0E2 /* Build configuration list for PBXNativeTarget "SwiftFilePath-Mac" */ = {
 			isa = XCConfigurationList;
@@ -965,6 +970,7 @@
 				D63BC3D51C172C740071D0E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D63BC3D61C172C740071D0E2 /* Build configuration list for PBXNativeTarget "SwiftFilePath-Mac Tests" */ = {
 			isa = XCConfigurationList;
@@ -973,6 +979,7 @@
 				D63BC3D81C172C740071D0E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
