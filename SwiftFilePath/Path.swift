@@ -10,120 +10,102 @@ public class Path {
     
     // MARK: - Class methods
     
-    public class func isDir(path:NSString) -> Bool {
+    public class func isDir(_ path: String) -> Bool {
         var isDirectory: ObjCBool = false
-        NSFileManager.defaultManager().fileExistsAtPath(path as String, isDirectory:&isDirectory)
-        return isDirectory ? true : false
+        FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory)
+        return isDirectory.boolValue
     }
     
     // MARK: - Instance properties and initializer
     
-    lazy var fileManager = NSFileManager.defaultManager()
-    public let path_string:String
+    var fileManager: FileManager {
+        return FileManager.default
+    }
     
+    public let url: URL
     
-    public init(_ p: String) {
-        self.path_string = p
+    public init(_ url: URL) {
+        assert(url.isFileURL, "Must be file URL")
+        self.url = url
+    }
+    
+    public convenience init(_ path: String) {
+        self.init(URL(fileURLWithPath: path))
     }
     
     // MARK: - Instance val
     
-    public var attributes:NSDictionary?{
+    public var attributes: [FileAttributeKey: Any]?{
         get { return self.loadAttributes() }
     }
     
     public var asString: String {
-        return path_string
+        return url.path
     }
     
     public var exists: Bool {
-        return fileManager.fileExistsAtPath(path_string)
+        return fileManager.fileExists(atPath: url.path)
     }
     
     public var isDir: Bool {
-        return Path.isDir(path_string);
+        return Path.isDir(url.path)
     }
     
-    public var basename:NSString {
-        return ( path_string as NSString ).lastPathComponent
+    public var basename: String {
+        return url.lastPathComponent
     }
     
-    public var parent: Path{
-        return Path( (path_string as NSString ).stringByDeletingLastPathComponent )
+    public var parent: Path {
+        return Path(url.deletingLastPathComponent())
     }
     
     // MARK: - Instance methods
     
     public func toString() -> String {
-        return path_string
+        return url.path
     }
     
-    public func remove() -> Result<Path,NSError> {
+    @discardableResult
+    public func remove() -> Result<Path, Error> {
         assert(self.exists,"To remove file, file MUST be exists")
-        var error: NSError?
-        let result: Bool
         do {
-            try fileManager.removeItemAtPath(path_string)
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try fileManager.removeItem(at: url)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!);
     }
     
-    public func copyTo(toPath:Path) -> Result<Path,NSError> {
+    @discardableResult
+    public func copyTo(_ toPath: Path) -> Result<Path,Error> {
         assert(self.exists,"To copy file, file MUST be exists")
-        var error: NSError?
-        let result: Bool
         do {
-            try fileManager.copyItemAtPath(path_string,
-                        toPath: toPath.toString())
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try fileManager.copyItem(at: url, to: toPath.url)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!)
     }
     
-    public func moveTo(toPath:Path) -> Result<Path,NSError> {
+    @discardableResult
+    public func moveTo(_ toPath: Path) -> Result<Path,Error> {
         assert(self.exists,"To move file, file MUST be exists")
-        var error: NSError?
-        let result: Bool
         do {
-            try fileManager.moveItemAtPath(path_string,
-                        toPath: toPath.toString())
-            result = true
-        } catch let error1 as NSError {
-            error = error1
-            result = false
+            try fileManager.moveItem(at: url, to: toPath.url)
+            return Result(success: self)
+        } catch let error {
+            return Result(failure: error)
         }
-        return result
-            ? Result(success: self)
-            : Result(failure: error!)
     }
     
-    private func loadAttributes() -> NSDictionary? {
-        assert(self.exists,"File must be exists to load file.< \(path_string) >")
-        var loadError: NSError?
-        let result: [NSObject: AnyObject]?
+    private func loadAttributes() -> [FileAttributeKey: Any]? {
+        assert(self.exists,"File must be exists to load file.< \(url.path) >")
         do {
-            result = try self.fileManager.attributesOfItemAtPath(path_string)
-        } catch let error as NSError {
-            loadError = error
-            result = nil
-        }
-        
-        if let error = loadError {
+            return try fileManager.attributesOfItem(atPath: url.path)
+        } catch let error {
             print("Error< \(error.localizedDescription) >")
         }
-        
-        return result
+        return nil
     }
     
 }
@@ -132,7 +114,7 @@ public class Path {
 
 extension Path:  CustomStringConvertible {
     public var description: String {
-        return "\(NSStringFromClass(self.dynamicType))<path:\(path_string)>"
+        return "\(String(describing: Path.self))<path:\(url.path)>"
     }
 }
 
