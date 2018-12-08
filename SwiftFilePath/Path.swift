@@ -19,7 +19,7 @@ open class Path {
     // MARK: - Instance properties and initializer
     
     lazy var fileManager = FileManager.default
-    open let path_string:String
+    let path_string:String
     
     
     public init(_ p: String) {
@@ -123,7 +123,7 @@ open class Path {
             print("Error< \(error.localizedDescription) >")
         }
         
-        return result as! NSDictionary
+        return result as NSDictionary?
     }
     
 }
